@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industries - VERITAS CONSULTING</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================================
+           RESET & VARIABLES
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --nav-bg: #0a1628;
+            --primary: #0a1628;
+            --gold: #c9a84c;
+            --gold-light: #dbb95a;
+            --gold-dark: #b8922f;
+            --text-primary: #1a2332;
+            --text-secondary: #4a5266;
+            --text-muted: #8a94a8;
+            --text-white: #ffffff;
+            --border-color: #e8ebf0;
+            --shadow-sm: 0 2px 8px rgba(10, 22, 40, 0.06);
+            --shadow-md: 0 8px 30px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.10);
+            --radius: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-text: 900px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.9;
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- Typography ---------- */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section-title .highlight { color: var(--gold); }
+
+        .section-title-wrapper {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title-wrapper .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 14px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .section { padding: 80px 0; }
+        .alt-bg { background: var(--bg-secondary); }
+
+        /* ---------- Buttons ---------- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .btn-primary.btn-cta {
+            padding: 10px 22px;
+            font-size: 0.85rem;
+        }
+
+        /* ---------- Header ---------- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(10, 22, 40, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+        }
+
+        /* ---------- Logo Area ---------- */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 52px;
+            width: 52px;
+            border-radius: 12px;
+            object-fit: cover;
+            display: block;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .logo-square {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            position: relative;
+        }
+
+        .logo-square:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .logo-square::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 14px;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--gold-light), transparent, var(--gold));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .logo-square::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border-radius: 8px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .logo-square-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1;
+            z-index: 1;
+            padding: 4px;
+        }
+
+        .logo-square-veritas {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-square-consulting {
+            font-size: 5.5px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-veritas {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-consulting {
+            font-weight: 500;
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* ---------- Navigation ---------- */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .main-nav ul li a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--text-white);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .main-nav ul li a.active {
+            color: var(--text-white);
+            background: rgba(201, 168, 76, 0.12);
+        }
+
+        .main-nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+        }
+
+        .hamburger:hover { color: var(--gold); }
+        main { padding-top: 76px; }
+
+        /* ============================================================
+           INDUSTRIES HERO
+           ============================================================ */
+        .industries-hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industries-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .industries-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .industries-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .industries-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .industries-hero h1 .highlight { color: var(--gold); }
+
+        .industries-hero .hero-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 14px auto 18px;
+            border-radius: 2px;
+        }
+
+        .industries-hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* ============================================================
+           INDUSTRY TILES - IMAGES FULLY VISIBLE
+           ============================================================ */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .industry-tile {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .industry-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .industry-tile:hover::before {
+            transform: scaleX(1);
+        }
+
+        .industry-tile:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== INDUSTRY IMAGE - FULLY VISIBLE ===== */
+        .industry-image-wrapper {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-secondary);
+        }
+
+        /* Gradient overlay at bottom for text readability */
+        .industry-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(transparent, rgba(10, 22, 40, 0.05));
+            pointer-events: none;
+        }
+
+        /* Option 1: contain - shows full image with possible white space */
+        .industry-image.contain {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+            display: block;
+            background: var(--bg-secondary);
+        }
+
+        /* Option 2: cover - fills area but may crop (default) */
+        .industry-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .industry-tile:hover .industry-image {
+            transform: scale(1.05);
+        }
+
+        .industry-tile:hover .industry-image.contain {
+            transform: scale(1.02);
+        }
+
+        /* ===== INDUSTRY ICON FALLBACK ===== */
+        .industry-icon-placeholder {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.06), rgba(201, 168, 76, 0.02));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--gold);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .industry-icon-placeholder span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* ===== INDUSTRY CONTENT ===== */
+        .industry-tile-content {
+            padding: 24px 28px 28px;
+        }
+
+        .industry-tile-content h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .industry-tile-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .industry-tile-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .industry-tile-content ul li {
+            padding: 5px 0 5px 22px;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .industry-tile-content ul li:hover {
+            color: var(--text-primary);
+            padding-left: 28px;
+        }
+
+        .industry-tile-content ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--gold);
+            font-size: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .industry-tile-content ul li:hover::before {
+            transform: translateX(4px);
+        }
+
+        .industry-tile-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* ---------- CTA Bar ---------- */
+        .cta-bar {
+            padding: 36px 0;
+            background: var(--primary);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .cta-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .cta-bar-content span {
+            color: var(--text-white);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .cta-bar-content span i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.5);
+            padding: 50px 0 28px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand h3 {
+            color: var(--text-white);
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .footer-brand .tagline {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--text-white);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer h4 {
+            color: var(--text-white);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(201, 168, 76, 0.15);
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer ul li a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer ul li a:hover {
+            color: var(--gold);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .pillar {
+            font-size: 0.7rem;
+            color: var(--gold);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pillar::before {
+            content: '◆';
+            font-size: 0.4rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: var(--nav-bg);
+                padding: 16px 20px;
+                border-top: 1px solid rgba(255,255,255,0.05);
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .main-nav.open { display: block; }
+            .main-nav ul { flex-direction: column; gap: 2px; align-items: stretch; }
+            .main-nav ul li a { display: block; padding: 10px 14px; text-align: center; }
+
+            .industries-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .logo-image {
+                height: 42px;
+                width: 42px;
+                border-radius: 10px;
+            }
+
+            .logo-square {
+                width: 42px;
+                height: 42px;
+                border-radius: 10px;
+            }
+
+            .logo-square .logo-square-veritas {
+                font-size: 8px;
+            }
+
+            .logo-square .logo-square-consulting {
+                font-size: 4.5px;
+            }
+
+            .logo-veritas {
+                font-size: 1rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.55rem;
+            }
+
+            .section { padding: 50px 0; }
+
+            .industries-hero { padding: 50px 0 30px; }
+            .industries-hero h1 { font-size: 2.4rem; }
+            .industries-hero p { font-size: 1rem; }
+
+            .industries-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .industry-image-wrapper {
+                height: 200px;
+            }
+
+            .industry-icon-placeholder {
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .industry-tile-content {
+                padding: 20px 20px 24px;
+            }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+
+            .cta-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 36px;
+                width: 36px;
+                border-radius: 8px;
+            }
+
+            .logo-square {
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+            }
+
+            .logo-square .logo-square-veritas {
+                font-size: 7px;
+            }
+
+            .logo-square .logo-square-consulting {
+                font-size: 4px;
+            }
+
+            .logo-veritas {
+                font-size: 0.8rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.45rem;
+                letter-spacing: 2px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .industries-hero h1 { font-size: 2rem; }
+            .container { padding: 0 16px; }
+
+            .industry-image-wrapper {
+                height: 180px;
+            }
+
+            .industry-icon-placeholder {
+                height: 180px;
+                font-size: 2.5rem;
+            }
+
+            .industry-tile-content h3 {
+                font-size: 1rem;
+            }
+
+            .industry-tile-content ul li {
+                font-size: 0.85rem;
+                padding: 4px 0 4px 20px;
+            }
+
+            .industry-tile-content p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ============================================================
+           ANIMATIONS
+           ============================================================ */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="header">
+    <div class="container header-container">
+
+        <!-- ===== LOGO ===== -->
+        <a href="index.html" class="logo-area">
+            <!-- OPTION 1: Use Image Logo (Recommended) -->
+            <img src="logo.png" alt="VERITAS CONSULTING" class="logo-image" /> 
+            
+            <!-- OPTION 2: Use Square Text Logo (Fallback) -->
+            
+            <!-- Logo Text beside the square -->
+            <div class="logo-text">
+                <span class="logo-veritas">VERITAS CONSULTING</span>
+               
+            </div>
+        </a>
+
+        <!-- ===== NAVIGATION ===== -->
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html" class="active">Industries</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- ===== HEADER CTA ===== -->
+        <div class="header-cta">
+            <a href="contact.html" class="btn-primary btn-cta">
+                <i class="fas fa-handshake"></i> Start a Conversation
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main>
+
+    <!-- ===== INDUSTRIES HERO ===== -->
+    <section class="industries-hero">
+        <div class="container industries-hero-content">
+            <h1>Industries <span class="highlight">We Serve</span></h1>
+            <div class="hero-divider"></div>
+            <p>Specialized governance, risk, and compliance solutions across diverse sectors, tailored to your industry's unique challenges.</p>
+        </div>
+    </section>
+
+    <!-- ===== INDUSTRY TILES ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="industries-grid">
+                
+                <!-- Industry 1: IT & SaaS -->
+                <div class="industry-tile animate-on-scroll delay-1">
+                    <div class="industry-image-wrapper">
+                        <!-- OPTION 1: Use Image with object-fit: cover (fills area) -->
+                        <img src="IT.png" alt="IT & SaaS" class="industry-image" />
+                        
+                        <!-- OPTION 2: Use Image with object-fit: contain (shows full image) -->
+                        <!-- <img src="assets/images/industries/it.png" alt="IT & SaaS" class="industry-image contain" /> -->
+                        
+                        <!-- OPTION 3: Use Icon (Fallback) -->
+                        <!-- <div class="industry-icon-placeholder">
+                            <i class="fas fa-cloud"></i>
+                            <span>IT &amp; SaaS</span>
+                        </div> -->
+                    </div>
+                    <div class="industry-tile-content">
+                        <h3>IT &amp; SaaS</h3>
+                        <p>Information security, cloud, compliance, SOC and technology risk.</p>
+                    </div>
+                </div>
+
+                <!-- Industry 2: FinTech & Financial Services -->
+                <div class="industry-tile animate-on-scroll delay-2">
+                    <div class="industry-image-wrapper">
+                        <img src="FINTECH.png" alt="FinTech & Financial Services" class="industry-image" />
+                        <!-- <img src="assets/images/industries/fintech.png" alt="FinTech" class="industry-image contain" /> -->
+                        <!-- <div class="industry-icon-placeholder">
+                            <i class="fas fa-coins"></i>
+                            <span>FinTech</span>
+                        </div> -->
+                    </div>
+                    <div class="industry-tile-content">
+                        <h3>FinTech &amp; Financial Services</h3>
+                        <p>Technology risk, governance, regulatory compliance and assurance.</p>
+                    </div>
+                </div>
+
+                <!-- Industry 3: Digital Trust & PKI -->
+                <div class="industry-tile animate-on-scroll delay-3">
+                    <div class="industry-image-wrapper">
+                        <img src="DIGITAL.png" alt="Digital Trust & PKI" class="industry-image" />
+                        <!-- <img src="assets/images/industries/digital-trust.png" alt="Digital Trust" class="industry-image contain" /> -->
+                        <!-- <div class="industry-icon-placeholder">
+                            <i class="fas fa-lock"></i>
+                            <span>Digital Trust</span>
+                        </div> -->
+                    </div>
+                    <div class="industry-tile-content">
+                        <h3>Digital Trust &amp; PKI</h3>
+                        <ul>
+                            <li>PKI</li>
+                            <li>Digital Signature</li>
+                            <li>Trust Services</li>
+                            <li>Certificate Authority environments</li>
+                            <li>Digital Trust Governance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Industry 4: Healthcare -->
+                <div class="industry-tile animate-on-scroll delay-4">
+                    <div class="industry-image-wrapper">
+                        <img src="HEALTHCARE.png" alt="Healthcare" class="industry-image" />
+                        <!-- <img src="assets/images/industries/healthcare.png" alt="Healthcare" class="industry-image contain" /> -->
+                        <!-- <div class="industry-icon-placeholder">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Healthcare</span>
+                        </div> -->
+                    </div>
+                    <div class="industry-tile-content">
+                        <h3>Healthcare</h3>
+                        <ul>
+                            <li>HIPAA</li>
+                            <li>Privacy</li>
+                            <li>Information Security</li>
+                            <li>Compliance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Industry 5: Government & Public Sector -->
+                <div class="industry-tile animate-on-scroll delay-5">
+                    <div class="industry-image-wrapper">
+                        <img src="GOVERNMENT.png" alt="Government & Public Sector" class="industry-image" />
+                        <!-- <img src="assets/images/industries/government.png" alt="Government" class="industry-image contain" /> -->
+                        <!-- <div class="industry-icon-placeholder">
+                            <i class="fas fa-university"></i>
+                            <span>Government</span>
+                        </div> -->
+                    </div>
+                    <div class="industry-tile-content">
+                        <h3>Government &amp; Public Sector</h3>
+                        <ul>
+                            <li>Governance</li>
+                            <li>Risk</li>
+                            <li>Information Security</li>
+                            <li>Compliance</li>
+                            <li>Assurance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Industry 6: Startups & Scale-ups -->
+                <div class="industry-tile animate-on-scroll delay-6">
+                    <div class="industry-image-wrapper">
+                        <img src="STARTUPS.png" alt="Startups & Scale-ups" class="industry-image" />
+                        <!-- <img src="assets/images/industries/startups.png" alt="Startups" class="industry-image contain" /> -->
+                        <!-- <div class="industry-icon-placeholder">
+                            <i class="fas fa-rocket"></i>
+                            <span>Startups</span>
+                        </div> -->
+                    </div>
+                    <div class="industry-tile-content">
+                        <h3>Startups &amp; Scale-ups</h3>
+                        <ul>
+                            <li>Compliance foundations</li>
+                            <li>Information security</li>
+                            <li>Risk management</li>
+                            <li>Management systems</li>
+                            <li>Audit readiness</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BAR ===== -->
+    <section class="cta-bar">
+        <div class="container cta-bar-content">
+            <span><i class="fas fa-certificate"></i> Want to apply for a certification?</span>
+            <a href="mailto:infovc@veritasconsul.com" class="btn-primary">
+                <i class="fas fa-envelope"></i> Engage Veritas
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <h3>VERITAS CONSULTING</h3>
+            <p class="tagline">Governance. Risk. Compliance. Confidence.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/veritas-consulting-sf/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:infovc@veritasconsul.com"><i class="fas fa-envelope"></i></a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://www.sreshtafoundation.com" target="_blank">SRESHTA FOUNDATION</a></li>
+            </ul>
+        </div>
+        <div class="footer-services">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="services.html#management">Information Security &amp; Management Systems</a></li>
+                <li><a href="services.html#grc">GRC &amp; Technology Risk</a></li>
+                <li><a href="services.html#assurance">Assurance &amp; Audit Readiness</a></li>
+                <li><a href="services.html#privacy">Privacy &amp; Regulatory Compliance</a></li>
+            </ul>
+        </div>
+        <div class="footer-legal">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+            </ul>
+            <p class="copyright">&copy; 2026 VERITAS CONSULTING. All Rights Reserved.</p>
+            <p class="pillar">A pillar of SRESHTA FOUNDATION</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('mainNav');
+
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('open');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+
+        const navLinks = document.querySelectorAll('.main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) {
+                    nav.classList.remove('open');
+                    const icon = hamburger?.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+    });
+</script>
+
+</body>
+</html>

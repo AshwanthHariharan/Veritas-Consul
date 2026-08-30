@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VERITAS CONSULTING</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <style>
+        /* ============================================================
+           VERITAS CONSULTING - Complete CSS
+           ============================================================ */
+
+        /* ---------- Reset & Variables ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f8fb;
+            --bg-card: #ffffff;
+            
+            --nav-bg: #0a1628;
+            --nav-bg-hover: #132a45;
+            
+            --primary: #0a1628;
+            --primary-light: #1a2a4a;
+            
+            --gold: #c9a84c;
+            --gold-light: #dbb95a;
+            --gold-dark: #b8922f;
+            
+            --text-primary: #1a2332;
+            --text-secondary: #4a5266;
+            --text-muted: #8a94a8;
+            --text-white: #ffffff;
+            
+            --border-color: #e8ebf0;
+            --border-light: #f0f2f6;
+            
+            --shadow-sm: 0 2px 8px rgba(10, 22, 40, 0.06);
+            --shadow-md: 0 8px 30px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.12);
+            
+            --radius: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-text: 860px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- Typography ---------- */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .section-title .highlight {
+            color: var(--gold);
+        }
+
+        .section-title-wrapper {
+            margin-bottom: 32px;
+        }
+
+        .section-title-wrapper .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin-top: 12px;
+            border-radius: 2px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .alt-bg {
+            background: var(--bg-secondary);
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .btn-primary.btn-lg {
+            padding: 14px 36px;
+            font-size: 1rem;
+        }
+
+        .btn-primary.btn-cta {
+            padding: 10px 22px;
+            font-size: 0.85rem;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: var(--text-white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(10, 22, 40, 0.2);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            background: var(--primary-light);
+            box-shadow: 0 8px 30px rgba(10, 22, 40, 0.3);
+        }
+
+        .btn-secondary.btn-lg {
+            padding: 14px 36px;
+            font-size: 1rem;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline.btn-lg {
+            padding: 14px 36px;
+            font-size: 1rem;
+        }
+
+        /* Button text display control */
+        .btn-text-short {
+            display: none;
+        }
+        .btn-text-full {
+            display: inline;
+        }
+
+        /* ---------- Header ---------- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(10, 22, 40, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+        }
+
+        /* ---------- Logo Area ---------- */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        /* Logo Image - Use this for your logo */
+        .logo-image {
+            height: 52px;
+            width: 52px;
+            border-radius: 12px;
+            object-fit: cover;
+            display: block;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        /* Square Logo with Curved Edges (Text-based fallback) */
+        .logo-square {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            position: relative;
+        }
+
+        .logo-square:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        /* Glow ring around square */
+        .logo-square::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 14px;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--gold-light), transparent, var(--gold));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Inner shine effect */
+        .logo-square::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border-radius: 8px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Text inside square */
+        .logo-square-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1;
+            z-index: 1;
+            padding: 4px;
+        }
+
+        .logo-square-veritas {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-square-consulting {
+            font-size: 5.5px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-veritas {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-consulting {
+            font-weight: 500;
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* ---------- Navigation ---------- */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .main-nav ul li a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--text-white);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .main-nav ul li a.active {
+            color: var(--text-white);
+            background: rgba(201, 168, 76, 0.12);
+        }
+
+        .main-nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+        }
+
+        .hamburger:hover {
+            color: var(--gold);
+        }
+
+        /* ---------- Main Content ---------- */
+        main {
+            padding-top: 76px;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+            gap: 32px;
+            align-items: stretch;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ===== HERO GLASS BOX ===== */
+        .hero-glass-box {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            border-radius: var(--radius-xl);
+            padding: 52px 48px;
+            box-shadow: 
+                0 20px 60px rgba(10, 22, 40, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        /* Glass box glow effect */
+        .hero-glass-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(201, 168, 76, 0.04), transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Glass box border glow */
+        .hero-glass-box::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius-xl);
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.2), transparent 40%, rgba(201, 168, 76, 0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .hero-glass-box:hover {
+            box-shadow: 
+                0 30px 80px rgba(10, 22, 40, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transform: translateY(-4px);
+        }
+
+        /* ===== Hero Content Inside Glass Box ===== */
+        .hero-text {
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Badge */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 168, 76, 0.12);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge i {
+            font-size: 0.65rem;
+        }
+
+        /* Logo in Hero */
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        /* Hero Logo Image */
+        .hero-logo-image {
+            height: 80px;
+            width: 80px;
+            border-radius: 16px;
+            object-fit: contain;
+            display: block;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            transition: var(--transition);
+            flex-shrink: 0;
+            background: var(--bg-card);
+            padding: 8px;
+        }
+
+        .hero-logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Fallback icon if no image */
+        .hero-logo i {
+            font-size: 3.5rem;
+            color: var(--gold);
+        }
+
+        .hero-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .hero-logo-text .veritas {
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .hero-logo-text .consulting {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(black);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Tagline */
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 620px;
+            margin-bottom: 20px;
+        }
+
+        /* Phone */
+        .hero-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(10, 22, 40, 0.04);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 28px;
+            border: 1px solid rgba(10, 22, 40, 0.06);
+        }
+
+        .hero-phone i {
+            color: var(--gold);
+        }
+
+        /* Buttons */
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* ===== STATS BESIDE GLASS BOX ===== */
+        .hero-stats-side {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        .hero-stats-side .stat-item-side {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 168, 76, 0.12);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            text-align: left;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(10, 22, 40, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .hero-stats-side .stat-item-side:hover {
+            transform: translateX(6px);
+            border-color: var(--gold);
+            box-shadow: 0 8px 25px rgba(201, 168, 76, 0.12);
+        }
+
+        .hero-stats-side .stat-icon-side {
+            font-size: 1.8rem;
+            color: var(--gold);
+            width: 48px;
+            height: 48px;
+            background: rgba(201, 168, 76, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        /* Stat Image (for custom icons) */
+        .hero-stats-side .stat-image-side {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 12px;
+            flex-shrink: 0;
+            background: rgba(201, 168, 76, 0.05);
+            padding: 6px;
+        }
+
+        .hero-stats-side .stat-item-side:hover .stat-icon-side {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-white);
+            transform: scale(1.05);
+        }
+
+        .hero-stats-side .stat-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .hero-stats-side .stat-number-side {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1.1;
+        }
+
+        .hero-stats-side .stat-label-side {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* Different colors for each stat */
+        .hero-stats-side .stat-item-side:nth-child(1) .stat-number-side {
+            color: var(--gold);
+        }
+        .hero-stats-side .stat-item-side:nth-child(2) .stat-number-side {
+            color: #4a90d9;
+        }
+        .hero-stats-side .stat-item-side:nth-child(3) .stat-number-side {
+            color: #50b8a0;
+        }
+        .hero-stats-side .stat-item-side:nth-child(4) .stat-number-side {
+            color: #e88a5a;
+        }
+
+        /* ---------- About Preview ---------- */
+        .about-preview {
+            background: var(--bg-secondary);
+        }
+
+        .about-preview .about-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            max-width: var(--max-text);
+        }
+
+        .about-preview .about-text strong {
+            color: var(--text-primary);
+        }
+
+        /* ---------- Service Tiles ---------- */
+        .tile-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .tile {
+            background: var(--bg-card);
+            padding: 32px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .tile:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tile:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== TILE ICON (Font Awesome) ===== */
+        .tile-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(201, 168, 76, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            color: var(--gold);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .tile:hover .tile-icon {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-white);
+            transform: scale(1.05);
+        }
+
+        /* ===== TILE IMAGE (Custom Logo/Icon) ===== */
+        .tile-image {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            margin-bottom: 14px;
+            transition: var(--transition);
+            flex-shrink: 0;
+            display: block;
+            border-radius: 12px;
+            background: rgba(201, 168, 76, 0.05);
+            padding: 4px;
+        }
+
+        .tile:hover .tile-image {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        /* Alternative: Larger tile image */
+        .tile-image.large {
+            width: 64px;
+            height: 64px;
+        }
+
+        /* Alternative: Circular tile image */
+        .tile-image.circular {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px solid rgba(201, 168, 76, 0.15);
+            padding: 4px;
+            object-fit: cover;
+        }
+
+        .tile:hover .tile-image.circular {
+            border-color: var(--gold);
+        }
+
+        .tile h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .tile p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0;
+            flex: 1;
+        }
+
+        .tile .tile-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-top: 12px;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: var(--transition);
+        }
+
+        .tile:hover .tile-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ---------- CTA Bar ---------- */
+        .cta-bar {
+            padding: 36px 0;
+            background: var(--primary);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .cta-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .cta-bar-content span {
+            color: var(--text-white);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .cta-bar-content span i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* ---------- Stats ---------- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ---------- Footer ---------- */
+        .footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.5);
+            padding: 60px 0 32px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            padding-right: 20px;
+        }
+
+        .footer-brand h3 {
+            color: var(--text-white);
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand .tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.04);
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--text-white);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer h4 {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul li a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 2px 0;
+        }
+
+        .footer ul li a:hover {
+            color: var(--gold);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .pillar {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pillar::before {
+            content: '◆';
+            font-size: 0.5rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE - iPad, Tablet & Mobile
+           ============================================================ */
+
+        /* Tablet (iPad) - Show hamburger on iPad Air and below */
+        @media (max-width: 1024px) {
+            /* Show hamburger on tablet */
+            .hamburger {
+                display: block;
+            }
+            
+            /* Hide navigation by default on tablet */
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: var(--nav-bg);
+                padding: 16px 20px;
+                border-top: 1px solid rgba(255,255,255,0.05);
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .main-nav.open {
+                display: block;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 2px;
+                align-items: stretch;
+            }
+            
+            .main-nav ul li a {
+                display: block;
+                padding: 10px 14px;
+                text-align: center;
+            }
+
+            .tile-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            /* Hero grid - stack on tablet */
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                max-width: 100%;
+            }
+            
+            .hero-glass-box {
+                padding: 40px 32px;
+            }
+            
+            /* Stats side becomes horizontal row on tablet */
+            .hero-stats-side {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                height: auto;
+                padding: 0;
+            }
+            
+            .hero-stats-side .stat-item-side {
+                padding: 16px 18px;
+                flex: none;
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .hero-stats-side .stat-number-side {
+                font-size: 1.8rem;
+            }
+            
+            .hero-logo-text .veritas {
+                font-size: 3rem;
+            }
+            
+            .hero-logo-text .consulting {
+                font-size: 1.5rem;
+                letter-spacing: 4px;
+            }
+
+            .hero-logo-image {
+                height: 60px;
+                width: 60px;
+            }
+            
+            /* Button text - show shorter version on tablet */
+            .btn-text-full {
+                display: none;
+            }
+            .btn-text-short {
+                display: inline;
+            }
+            
+            .btn-primary.btn-lg,
+            .btn-secondary.btn-lg,
+            .btn-outline.btn-lg {
+                padding: 12px 24px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Mobile (Phone) */
+        @media (max-width: 768px) {
+            /* Logo sizes */
+            .logo-image {
+                height: 42px;
+                width: 42px;
+                border-radius: 10px;
+            }
+
+            .logo-square {
+                width: 42px;
+                height: 42px;
+                border-radius: 10px;
+            }
+
+            .logo-square .logo-square-veritas {
+                font-size: 8px;
+            }
+
+            .logo-square .logo-square-consulting {
+                font-size: 4.5px;
+            }
+
+            .logo-veritas {
+                font-size: 1rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.55rem;
+            }
+            
+            .hero {
+                padding: 60px 0 40px;
+                min-height: auto;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                max-width: 100%;
+            }
+
+            .hero-glass-box {
+                padding: 28px 20px;
+                border-radius: var(--radius-lg);
+            }
+
+            .hero-logo {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-logo-text .veritas {
+                font-size: 2.4rem;
+            }
+
+            .hero-logo-text .consulting {
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+            }
+
+            .hero-logo i {
+                font-size: 2.4rem;
+            }
+
+            .hero-logo-image {
+                height: 50px;
+                width: 50px;
+            }
+
+            .hero-tagline {
+                font-size: 0.95rem;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary,
+            .hero-buttons .btn-outline {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+            
+            /* Stats - 2x2 grid on mobile */
+            .hero-stats-side {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                height: auto;
+                padding: 0;
+            }
+
+            .hero-stats-side .stat-item-side {
+                padding: 14px 16px;
+                flex: none;
+                flex-direction: column;
+                text-align: center;
+                gap: 4px;
+            }
+
+            .hero-stats-side .stat-number-side {
+                font-size: 1.6rem;
+            }
+
+            .hero-stats-side .stat-label-side {
+                font-size: 0.7rem;
+            }
+
+            .hero-stats-side .stat-icon-side {
+                font-size: 1.3rem;
+                width: 36px;
+                height: 36px;
+            }
+
+            .hero-stats-side .stat-image-side {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .tile-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            
+            .cta-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            /* Hero badge */
+            .hero-badge {
+                font-size: 0.6rem;
+                padding: 4px 14px;
+            }
+
+            /* Phone number */
+            .hero-phone {
+                font-size: 0.8rem;
+                padding: 4px 14px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 36px;
+                width: 36px;
+                border-radius: 8px;
+            }
+
+            .logo-square {
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+            }
+
+            .logo-square .logo-square-veritas {
+                font-size: 7px;
+            }
+
+            .logo-square .logo-square-consulting {
+                font-size: 4px;
+            }
+
+            .logo-veritas {
+                font-size: 0.8rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.45rem;
+                letter-spacing: 2px;
+            }
+
+            /* Hide logo text on very small screens, show only icon */
+            .logo-text {
+                display: none;
+            }
+
+            .hero-glass-box {
+                padding: 20px 14px;
+            }
+
+            .hero-logo-text .veritas {
+                font-size: 1.8rem;
+            }
+
+            .hero-logo-text .consulting {
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-logo i {
+                font-size: 1.8rem;
+            }
+
+            .hero-logo-image {
+                height: 40px;
+                width: 40px;
+            }
+
+            .hero-tagline {
+                font-size: 0.85rem;
+            }
+
+            .hero-badge {
+                font-size: 0.5rem;
+                padding: 3px 10px;
+            }
+
+            .hero-phone {
+                font-size: 0.75rem;
+                padding: 4px 12px;
+            }
+
+            .hero-stats-side .stat-item-side {
+                padding: 10px 12px;
+            }
+
+            .hero-stats-side .stat-number-side {
+                font-size: 1.3rem;
+            }
+
+            .hero-stats-side .stat-label-side {
+                font-size: 0.6rem;
+            }
+
+            .hero-stats-side .stat-icon-side {
+                font-size: 1rem;
+                width: 30px;
+                height: 30px;
+            }
+
+            .hero-stats-side .stat-image-side {
+                width: 30px;
+                height: 30px;
+            }
+
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary,
+            .hero-buttons .btn-outline {
+                padding: 10px 16px;
+                font-size: 0.75rem;
+            }
+
+            .tile-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        /* ---------- Scroll Animation ---------- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="header">
+    <div class="container header-container">
+
+        <!-- ===== LOGO ===== -->
+        <a href="index.html" class="logo-area">
+            <!-- OPTION 1: Use Image Logo (Recommended) -->
+            <img src="logo.png" alt="VERITAS CONSULTING" class="logo-image" />
+            
+            <!-- OPTION 2: Use Square Text Logo (Fallback) 
+            <div class="logo-square">
+                <div class="logo-square-text">
+                    <span class="logo-square-veritas">VERITAS</span>
+                    <span class="logo-square-consulting">CONSULTING</span>
+                </div>
+            </div> -->
+            
+            <!-- Logo Text beside the square -->
+            <div class="logo-text">
+                <span class="logo-veritas">VERITAS CONSULTING</span>
+                <span class="logo-consulting"></span>
+            </div>
+        </a>
+
+        <!-- ===== NAVIGATION ===== -->
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- ===== HEADER CTA ===== -->
+        <div class="header-cta">
+            <a href="contact.html" class="btn-primary btn-cta">
+                <i class="fas fa-handshake"></i> Start a Conversation
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main>
+
+    <!-- ===== HERO SECTION WITH GLASS BOX + STATS SIDEBAR ===== -->
+    <section class="hero">
+        <div class="container hero-grid">
+            
+            <!-- LEFT: Glass Box -->
+            <div class="hero-glass-box">
+                <div class="hero-text">
+                    
+                    <!-- "VERITAS CONSULTING" Logo -->
+                    <div class="hero-logo">
+                        <!-- OPTION 1: Use Image Logo in Hero -->
+                        <img src="logo.png" alt="VERITAS CONSULTING" class="hero-logo-image" />
+                        
+                        <!-- OPTION 2: Use Icon (Fallback) 
+                        <i class="fas fa-scale-balanced"></i> -->
+                        
+                        <div class="hero-logo-text">
+                            <span class="veritas">VERITAS</span>
+                            <span class="consulting">CONSULTING</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tagline -->
+                    <p class="hero-tagline">
+                        Enabling organisations to strengthen governance, manage risk, enhance compliance, and build resilient business operations
+                    </p>
+                    
+                    <!-- Phone -->
+                    <div class="hero-phone">
+                        <i class="fas fa-phone-alt"></i> +91 8056026281
+                    </div>
+                    
+                    <!-- Buttons with concise text for mobile/tablet -->
+                    <div class="hero-buttons">
+                        <a href="services.html" class="btn-primary btn-lg">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="btn-text-full">Explore our Services</span>
+                            <span class="btn-text-short">Services</span>
+                        </a>
+                        <a href="contact.html" class="btn-secondary btn-lg">
+                            <i class="fas fa-calendar-check"></i>
+                            <span class="btn-text-full">Begin your Journey</span>
+                            <span class="btn-text-short">Conversation</span>
+                        </a>
+                        <a href="about.html#why" class="btn-outline btn-lg">
+                            <i class="fas fa-question-circle"></i>
+                            <span class="btn-text-full">Why Veritas Consulting?</span>
+                            <span class="btn-text-short">Why Us?</span>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- End Glass Box -->
+
+            <!-- RIGHT: Stats Sidebar (Beside the Glass Box) -->
+            <div class="hero-stats-side">
+                <div class="stat-item-side">
+                    <!-- OPTION 1: Use Font Awesome Icon -->
+                    <div class="stat-icon-side">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <!-- OPTION 2: Use Image (Uncomment and comment the icon above) -->
+                    <!--<img src="assets/images/icons/experience.png" alt="Experience" class="stat-image-side" /> -->
+                    <div class="stat-info">
+                        <span class="stat-number-side">24+</span>
+                        <span class="stat-label-side">Years of experience</span>
+                    </div>
+                </div>
+                <div class="stat-item-side">
+                    <div class="stat-icon-side">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <!-- <img src="assets/images/icons/pillars.png" alt="Pillars" class="stat-image-side" /> -->
+                    <div class="stat-info">
+                        <span class="stat-number-side">4</span>
+                        <span class="stat-label-side">Core service pillars</span>
+                    </div>
+                </div>
+                <div class="stat-item-side">
+                    <div class="stat-icon-side">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <!-- <img src="assets/images/icons/integrity.png" alt="Integrity" class="stat-image-side" /> -->
+                    <div class="stat-info">
+                        <span class="stat-number-side">100%</span>
+                        <span class="stat-label-side">Commitment to integrity</span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Stats Sidebar -->
+
+        </div>
+    </section>
+
+    <!-- ===== ABOUT PREVIEW ===== -->
+    <section class="about-preview section">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">About <span class="highlight">Us</span></h2>
+            </div>
+            <p class="about-text">
+                <strong>VERITAS CONSULTING</strong> is a professional advisory practice focused on Governance, Risk, Compliance, Assurance, Cybersecurity, Management Systems and Transformation. We help organizations navigate complex technology, regulatory and business risks through practical, measurable and business-aligned solutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== SERVICE TILES ===== -->
+    <section class="service-tiles section">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Our <span class="highlight">Services</span></h2>
+            </div>
+            
+            <div class="tile-grid">
+                <!-- Tile 1 - Management Systems Stack -->
+                <div class="tile animate-on-scroll" onclick="location.href='services.html#management'">
+                    <!-- OPTION 1: Use Font Awesome Icon -->
+                    <!--<div class="tile-icon"><i class="fas fa-layer-group"></i></div> -->
+                    
+                    <!-- OPTION 2: Use Image/Logo (Uncomment if you have images) -->
+                     <img src="MANAGEMENT SYSTEM STACK.png" alt="Management Systems" class="tile-image" /> 
+                    
+                    <h3>Management Systems Stack</h3>
+                    <p>ISO 9001, 27001, 42001, 14001, 22000, 22301, 27701 &amp; trainings</p>
+                    <span class="tile-arrow">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Tile 2 - GRC & Technology Risk -->
+                <div class="tile animate-on-scroll" onclick="location.href='services.html#grc'">
+                    <!-- OPTION 1: Use Font Awesome Icon -->
+                    <!--<div class="tile-icon"><i class="fas fa-diagram-project"></i></div>-->
+                    
+                    <!-- OPTION 2: Use Image/Logo (Uncomment if you have images) -->
+                    <img src="GRC AND TECHNOLOGY.png" alt="GRC & Technology Risk" class="tile-image" />
+                    
+                    <h3>GRC &amp; Technology Risk</h3>
+                    <p>Governance, risk, compliance, internal controls, vendor risk</p>
+                    <span class="tile-arrow">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Tile 3 - Assurance & Audit Readiness -->
+                <div class="tile animate-on-scroll" onclick="location.href='services.html#assurance'">
+                    <!-- OPTION 1: Use Font Awesome Icon -->
+                    <!--<div class="tile-icon"><i class="fas fa-clipboard-check"></i></div>-->
+                    
+                    <!-- OPTION 2: Use Image/Logo (Uncomment if you have images) -->
+                    <img src="ASSURANCE AND AUDIT READINESS.png" alt="Assurance & Audit Readiness" class="tile-image" /> 
+                    
+                    <h3>Assurance &amp; Audit Readiness</h3>
+                    <p>SOC 1/2, control assessments, remediation, expert reviews</p>
+                    <span class="tile-arrow">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Tile 4 - Privacy & Regulatory -->
+                <div class="tile animate-on-scroll" onclick="location.href='services.html#privacy'">
+                    <!-- OPTION 1: Use Font Awesome Icon -->
+                    <!--<div class="tile-icon"><i class="fas fa-user-shield"></i></div>-->
+                    
+                    <!-- OPTION 2: Use Image/Logo (Uncomment if you have images) -->
+                    <img src="PRIVACY.png" alt="Privacy & Regulatory" class="tile-image" />
+                    
+                    <h3>Privacy &amp; Regulatory</h3>
+                    <p>GDPR, HIPAA, DPDPA, privacy governance, data protection</p>
+                    <span class="tile-arrow">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BAR ===== -->
+    <section class="cta-bar">
+        <div class="container cta-bar-content">
+            <span><i class="fas fa-certificate"></i> Want to apply for a certification?</span>
+            <a href="mailto:infovc@veritasconsul.com" class="btn-primary">
+                <i class="fas fa-envelope"></i> Engage Veritas
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+    <div class="container footer-grid">
+        
+        <div class="footer-brand">
+            <h3>VERITAS CONSULTING</h3>
+            <p class="tagline">Governance. Risk. Compliance. Confidence.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/veritas-consulting-sf/?viewAsMember=true" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:infovc@veritasconsul.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="contact.html" aria-label="Contact">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://www.sreshtafoundation.com" target="_blank">SRESHTA FOUNDATION</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-services">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="services.html#management">Information Security &amp; Management Systems</a></li>
+                <li><a href="services.html#grc">GRC &amp; Technology Risk</a></li>
+                <li><a href="services.html#assurance">Assurance &amp; Audit Readiness</a></li>
+                <li><a href="services.html#privacy">Privacy &amp; Regulatory Compliance</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-legal">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+            </ul>
+            <p class="copyright">&copy; 2026 VERITAS CONSULTING. All Rights Reserved.</p>
+            <p class="pillar">A pillar of SRESHTA FOUNDATION</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ---------- Mobile Hamburger Menu ----------
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('mainNav');
+
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('open');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+
+        // Close menu on link click (mobile)
+        const navLinks = document.querySelectorAll('.main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) {
+                    nav.classList.remove('open');
+                    const icon = hamburger?.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        // ---------- Header Scroll Effect ----------
+        const header = document.getElementById('header');
+        if (header) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // ---------- Scroll Animation (Intersection Observer) ----------
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+    });
+</script>
+
+</body>
+</html>

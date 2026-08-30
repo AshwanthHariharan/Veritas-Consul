@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy – VERITAS CONSULTING</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <style>
+        /* ============================================================
+           RESET & VARIABLES (identical to contact page)
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --nav-bg: #0a1628;
+            --primary: #0a1628;
+            --gold: #c9a84c;
+            --gold-light: #dbb95a;
+            --gold-dark: #b8922f;
+            --text-primary: #1a2332;
+            --text-secondary: #4a5266;
+            --text-muted: #8a94a8;
+            --text-white: #ffffff;
+            --border-color: #e8ebf0;
+            --shadow-sm: 0 2px 8px rgba(10, 22, 40, 0.06);
+            --shadow-md: 0 8px 30px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.10);
+            --radius: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-text: 900px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.9;
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- Typography ---------- */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section-title .highlight {
+            color: var(--gold);
+        }
+
+        .section-title-wrapper {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title-wrapper .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 14px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+        .alt-bg {
+            background: var(--bg-secondary);
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .btn-primary.btn-cta {
+            padding: 10px 22px;
+            font-size: 0.85rem;
+        }
+
+        /* ---------- Header ---------- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(10, 22, 40, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+        }
+
+        /* ---------- Logo Area ---------- */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 52px;
+            width: 52px;
+            border-radius: 12px;
+            object-fit: cover;
+            display: block;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-veritas {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-consulting {
+            font-weight: 500;
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* ---------- Navigation ---------- */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .main-nav ul li a {
+            color: rgba(255, 255, 255, 0.55);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--text-white);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .main-nav ul li a.active {
+            color: var(--text-white);
+            background: rgba(201, 168, 76, 0.12);
+        }
+
+        .main-nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+        }
+
+        .hamburger:hover {
+            color: var(--gold);
+        }
+        main {
+            padding-top: 76px;
+        }
+
+        /* ============================================================
+           POLICY HERO
+           ============================================================ */
+        .policy-hero {
+            padding: 80px 0 50px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .policy-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .policy-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .policy-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .policy-hero h1 .highlight {
+            color: var(--gold);
+        }
+
+        .policy-hero .hero-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 14px auto 18px;
+            border-radius: 2px;
+        }
+
+        .policy-hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* ============================================================
+           PRIVACY POLICY CONTENT
+           ============================================================ */
+        .policy-content {
+            padding: 60px 0 80px;
+        }
+
+        .policy-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            padding: 48px 56px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .policy-card:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-md);
+        }
+
+        .policy-card h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .policy-card h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .policy-card h2 .gold {
+            color: var(--gold);
+        }
+
+        .policy-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.9;
+        }
+
+        .policy-card ul {
+            margin: 0.75rem 0 1.25rem 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .policy-card ul li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        .policy-card ul li strong {
+            color: var(--text-primary);
+        }
+
+        .policy-card .pillar-note {
+            background: rgba(201, 168, 76, 0.06);
+            border-left: 4px solid var(--gold);
+            padding: 16px 24px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .policy-card .pillar-note i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        .policy-card .last-updated {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: right;
+        }
+
+        /* ============================================================
+           CTA BAR
+           ============================================================ */
+        .cta-bar {
+            padding: 36px 0;
+            background: var(--primary);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .cta-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .cta-bar-content span {
+            color: var(--text-white);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .cta-bar-content span i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            background: var(--primary);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 50px 0 28px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand h3 {
+            color: var(--text-white);
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .footer-brand .tagline {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--text-white);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer h4 {
+            color: var(--text-white);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(201, 168, 76, 0.15);
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer ul li a:hover {
+            color: var(--gold);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .pillar {
+            font-size: 0.7rem;
+            color: var(--gold);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pillar::before {
+            content: '◆';
+            font-size: 0.4rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: var(--nav-bg);
+                padding: 16px 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .main-nav.open {
+                display: block;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                gap: 2px;
+                align-items: stretch;
+            }
+            .main-nav ul li a {
+                display: block;
+                padding: 10px 14px;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .policy-card {
+                padding: 32px 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-image {
+                height: 42px;
+                width: 42px;
+                border-radius: 10px;
+            }
+
+            .logo-veritas {
+                font-size: 1rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.55rem;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .policy-hero {
+                padding: 50px 0 30px;
+            }
+            .policy-hero h1 {
+                font-size: 2.4rem;
+            }
+            .policy-hero p {
+                font-size: 1rem;
+            }
+
+            .policy-content {
+                padding: 40px 0 60px;
+            }
+            .policy-card {
+                padding: 24px 20px;
+            }
+            .policy-card h2 {
+                font-size: 1.4rem;
+            }
+
+            .cta-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 36px;
+                width: 36px;
+                border-radius: 8px;
+            }
+
+            .logo-veritas {
+                font-size: 0.8rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.45rem;
+                letter-spacing: 2px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .policy-hero h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 16px;
+            }
+
+            .policy-card {
+                padding: 20px 16px;
+            }
+            .policy-card h2 {
+                font-size: 1.2rem;
+            }
+            .policy-card ul {
+                margin-left: 1rem;
+            }
+        }
+
+        /* ============================================================
+           ANIMATIONS
+           ============================================================ */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    HEADER (identical to contact page)
+    ============================================================ -->
+    <header class="header" id="header">
+        <div class="container header-container">
+
+            <a href="index.html" class="logo-area">
+                <img src="logo.png" alt="VERITAS CONSULTING" class="logo-image" />
+                <div class="logo-text">
+                    <span class="logo-veritas">VERITAS CONSULTING</span>
+                </div>
+            </a>
+
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="industries.html">Industries</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-cta">
+                <a href="contact.html" class="btn-primary btn-cta">
+                    <i class="fas fa-handshake"></i> Start a conversation
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main>
+
+        <!-- ===== POLICY HERO ===== -->
+        <section class="policy-hero">
+            <div class="container policy-hero-content">
+                <h1>Privacy <span class="highlight">Policy</span></h1>
+                <div class="hero-divider"></div>
+                <p>Your privacy matters to us. This policy outlines how VERITAS CONSULTING collects, uses, and protects your personal information.</p>
+            </div>
+        </section>
+
+        <!-- ===== POLICY CONTENT ===== -->
+        <section class="policy-content">
+            <div class="container">
+                <div class="policy-card animate-on-scroll">
+
+                    <h2>1. <span class="gold">Information We Collect</span></h2>
+                    <p>VERITAS CONSULTING (“we,” “our,” or “us”) collects information that you voluntarily provide to us when you:</p>
+                    <ul>
+                        <li><strong>Contact us</strong> via our website, email, or phone.</li>
+                        <li><strong>Submit a consultation request</strong> or enquiry through our contact form.</li>
+                        <li><strong>Sign up</strong> for newsletters, reports, or event invitations.</li>
+                        <li><strong>Engage with us</strong> on social media or professional platforms.</li>
+                    </ul>
+                    <p>The types of personal information we may collect include your name, email address, phone number, organisation name, job title, and any other details you choose to provide.</p>
+
+                    <h2>2. <span class="gold">How We Use Your Information</span></h2>
+                    <p>We use the information we collect to:</p>
+                    <ul>
+                        <li><strong>Respond</strong> to your enquiries and provide the services you request.</li>
+                        <li><strong>Communicate</strong> with you about our services, insights, and events that may be of interest.</li>
+                        <li><strong>Improve</strong> our website, client experience, and service offerings.</li>
+                        <li><strong>Comply</strong> with legal and regulatory obligations.</li>
+                    </ul>
+                    <p>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>
+
+                    <h2>3. <span class="gold">Data Security</span></h2>
+                    <p>We take the security of your personal information seriously. We implement reasonable administrative, technical, and physical safeguards to protect against unauthorised access, alteration, disclosure, or destruction of your data. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+                    <h2>4. <span class="gold">Cookies &amp; Tracking</span></h2>
+                    <p>Our website uses cookies and similar tracking technologies to enhance your browsing experience, analyse site traffic, and understand user behaviour. You can control cookie preferences through your browser settings. Please note that disabling cookies may affect the functionality of certain parts of our website.</p>
+
+                    <h2>5. <span class="gold">Third-Party Links</span></h2>
+                    <p>Our website may contain links to third-party websites, plugins, or services. We are not responsible for the privacy practices or content of such external sites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+
+                    <h2>6. <span class="gold">Data Retention</span></h2>
+                    <p>We retain your personal information only for as long as necessary to fulfil the purposes for which it was collected, including for the purposes of satisfying any legal, accounting, or reporting requirements. When we no longer need your information, we will securely delete or anonymise it.</p>
+
+                    <h2>7. <span class="gold">Your Rights</span></h2>
+                    <p>Depending on your jurisdiction, you may have the right to:</p>
+                    <ul>
+                        <li><strong>Access</strong> – request a copy of the personal information we hold about you.</li>
+                        <li><strong>Rectification</strong> – request correction of inaccurate or incomplete data.</li>
+                        <li><strong>Erasure</strong> – request deletion of your personal data, subject to legal obligations.</li>
+                        <li><strong>Restriction</strong> – request that we limit the processing of your data.</li>
+                        <li><strong>Objection</strong> – object to the processing of your data for certain purposes.</li>
+                    </ul>
+                    <p>To exercise any of these rights, please contact us at <a href="mailto:infovc@veritasconsul.com" style="color: var(--gold); text-decoration: none; font-weight: 600;">infovc@veritasconsul.com</a>.</p>
+
+                    <h2>8. <span class="gold">Updates to This Policy</span></h2>
+                    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will post the updated policy on this page with a revised “Last Updated” date. We encourage you to review this page periodically.</p>
+
+                    <div class="pillar-note">
+                        <i class="fas fa-shield-alt"></i> <strong>Our Commitment:</strong> VERITAS CONSULTING is committed to protecting your privacy and handling your data with transparency and integrity. We align our practices with applicable data protection laws and industry best practices.
+                    </div>
+
+                    <div class="last-updated">
+                        <i class="far fa-calendar-alt" style="margin-right: 6px;"></i> Last Updated: 30 August 2026
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA BAR ===== -->
+        <section class="cta-bar">
+            <div class="container cta-bar-content">
+                <span><i class="fas fa-certificate"></i> Have a question about our privacy practices?</span>
+                <a href="contact.html" class="btn-primary">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    FOOTER (identical to contact page)
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>VERITAS CONSULTING</h3>
+                <p class="tagline">Governance. Risk. Compliance. Confidence.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/veritas-consulting-sf/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:infovc@veritasconsul.com"><i class="fas fa-envelope"></i></a>
+                    <a href="contact.html"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="industries.html">Industries</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://www.sreshtafoundation.com" target="_blank">SRESHTA FOUNDATION</a></li>
+                </ul>
+            </div>
+            <div class="footer-services">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html#management">Information Security &amp; Management Systems</a></li>
+                    <li><a href="services.html#grc">GRC &amp; Technology Risk</a></li>
+                    <li><a href="services.html#assurance">Assurance &amp; Audit Readiness</a></li>
+                    <li><a href="services.html#privacy">Privacy &amp; Regulatory Compliance</a></li>
+                </ul>
+            </div>
+            <div class="footer-legal">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html" class="active" style="color: var(--gold);">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                </ul>
+                <p class="copyright">&copy; 2026 VERITAS CONSULTING. All Rights Reserved.</p>
+                <p class="pillar">A pillar of SRESHTA FOUNDATION</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Hamburger toggle
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('mainNav');
+
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', function() {
+                    nav.classList.toggle('open');
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+            }
+
+            // Close mobile nav on link click
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 1024) {
+                        nav.classList.remove('open');
+                        const icon = hamburger?.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            });
+
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -30px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+        });
+    </script>
+
+</body>
+</html>

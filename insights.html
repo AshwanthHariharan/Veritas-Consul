@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insights - VERITAS CONSULTING</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================================
+           RESET & VARIABLES
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --nav-bg: #0a1628;
+            --primary: #0a1628;
+            --gold: #c9a84c;
+            --gold-light: #dbb95a;
+            --gold-dark: #b8922f;
+            --text-primary: #1a2332;
+            --text-secondary: #4a5266;
+            --text-muted: #8a94a8;
+            --text-white: #ffffff;
+            --border-color: #e8ebf0;
+            --shadow-sm: 0 2px 8px rgba(10, 22, 40, 0.06);
+            --shadow-md: 0 8px 30px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.10);
+            --radius: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-text: 900px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.9;
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- Typography ---------- */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section-title .highlight { color: var(--gold); }
+
+        .section-title-wrapper {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title-wrapper .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 14px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .section { padding: 80px 0; }
+        .alt-bg { background: var(--bg-secondary); }
+
+        /* ---------- Buttons ---------- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .btn-primary.btn-cta {
+            padding: 10px 22px;
+            font-size: 0.85rem;
+        }
+
+        /* ---------- Header ---------- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(10, 22, 40, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+        }
+
+        /* ---------- Logo Area ---------- */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 52px;
+            width: 52px;
+            border-radius: 12px;
+            object-fit: cover;
+            display: block;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .logo-square {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            position: relative;
+        }
+
+        .logo-square:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .logo-square::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 14px;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--gold-light), transparent, var(--gold));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .logo-square::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border-radius: 8px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .logo-square-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1;
+            z-index: 1;
+            padding: 4px;
+        }
+
+        .logo-square-veritas {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-square-consulting {
+            font-size: 5.5px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-veritas {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-consulting {
+            font-weight: 500;
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* ---------- Navigation ---------- */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .main-nav ul li a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--text-white);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .main-nav ul li a.active {
+            color: var(--text-white);
+            background: rgba(201, 168, 76, 0.12);
+        }
+
+        .main-nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+        }
+
+        .hamburger:hover { color: var(--gold); }
+        main { padding-top: 76px; }
+
+        /* ============================================================
+           INSIGHTS HERO
+           ============================================================ */
+        .insights-hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insights-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .insights-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .insights-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .insights-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .insights-hero h1 .highlight { color: var(--gold); }
+
+        .insights-hero .hero-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 14px auto 18px;
+            border-radius: 2px;
+        }
+
+        .insights-hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* ============================================================
+           INSIGHTS LAYOUT
+           ============================================================ */
+        .insights-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* ============================================================
+           ARTICLES GRID
+           ============================================================ */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .article-tile {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .article-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .article-tile:hover::before {
+            transform: scaleX(1);
+        }
+
+        .article-tile:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Article Image */
+        .article-image-wrapper {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-secondary);
+        }
+
+        .article-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(transparent, rgba(10, 22, 40, 0.04));
+            pointer-events: none;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .article-tile:hover .article-image {
+            transform: scale(1.05);
+        }
+
+        /* Article Content */
+        .article-content {
+            padding: 20px 24px 24px;
+        }
+
+        .article-content .article-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-white);
+            padding: 3px 14px;
+            border-radius: 50px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
+        }
+
+        .article-content .article-badge.coming-soon {
+            background: #f0f0f0;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .article-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .article-content .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .article-content .article-meta i {
+            color: var(--gold);
+            margin-right: 4px;
+        }
+
+        /* ============================================================
+           SIDEBAR
+           ============================================================ */
+        .insights-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sidebar-box {
+            background: var(--bg-card);
+            padding: 28px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .sidebar-box:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-md);
+        }
+
+        .sidebar-box h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        /* Categories */
+        .categories-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .categories-list li {
+            padding: 5px 16px;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .categories-list li:hover {
+            background: var(--gold);
+            color: var(--text-white);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* Resources List */
+        .resources-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resources-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .resources-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resources-list li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resources-list li a i {
+            color: var(--gold);
+            font-size: 0.9rem;
+            width: 20px;
+        }
+
+        .resources-list li a:hover {
+            color: var(--gold);
+            transform: translateX(4px);
+        }
+
+        /* ===== CTA BOX - FIXED VISIBILITY ===== */
+        .sidebar-box.cta-box {
+            background: linear-gradient(135deg, #0a1628, #1a2a4a);
+            border-color: var(--gold);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar-box.cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(201, 168, 76, 0.08), transparent 60%);
+            pointer-events: none;
+        }
+
+        .sidebar-box.cta-box h3 {
+            color: #ffffff;
+            border-bottom-color: var(--gold);
+            position: relative;
+            z-index: 1;
+        }
+
+        .sidebar-box.cta-box p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 16px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sidebar-box.cta-box .btn-primary {
+            background: var(--gold);
+            color: #0a1628;
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+        }
+
+        .sidebar-box.cta-box .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
+        }
+
+        .sidebar-box.cta-box .btn-primary i {
+            color: #0a1628;
+        }
+
+        /* ---------- CTA Bar ---------- */
+        .cta-bar {
+            padding: 36px 0;
+            background: var(--primary);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .cta-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .cta-bar-content span {
+            color: var(--text-white);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .cta-bar-content span i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.5);
+            padding: 50px 0 28px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand h3 {
+            color: var(--text-white);
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .footer-brand .tagline {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--text-white);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer h4 {
+            color: var(--text-white);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(201, 168, 76, 0.15);
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer ul li a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer ul li a:hover {
+            color: var(--gold);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .pillar {
+            font-size: 0.7rem;
+            color: var(--gold);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pillar::before {
+            content: '◆';
+            font-size: 0.4rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: var(--nav-bg);
+                padding: 16px 20px;
+                border-top: 1px solid rgba(255,255,255,0.05);
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .main-nav.open { display: block; }
+            .main-nav ul { flex-direction: column; gap: 2px; align-items: stretch; }
+            .main-nav ul li a { display: block; padding: 10px 14px; text-align: center; }
+
+            .insights-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .logo-image {
+                height: 42px;
+                width: 42px;
+                border-radius: 10px;
+            }
+
+            .logo-square {
+                width: 42px;
+                height: 42px;
+                border-radius: 10px;
+            }
+
+            .logo-square .logo-square-veritas {
+                font-size: 8px;
+            }
+
+            .logo-square .logo-square-consulting {
+                font-size: 4.5px;
+            }
+
+            .logo-veritas {
+                font-size: 1rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.55rem;
+            }
+
+            .section { padding: 50px 0; }
+
+            .insights-hero { padding: 50px 0 30px; }
+            .insights-hero h1 { font-size: 2.4rem; }
+            .insights-hero p { font-size: 1rem; }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .article-image-wrapper {
+                height: 160px;
+            }
+
+            .article-content {
+                padding: 16px 18px 20px;
+            }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+
+            .cta-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 36px;
+                width: 36px;
+                border-radius: 8px;
+            }
+
+            .logo-square {
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+            }
+
+            .logo-square .logo-square-veritas {
+                font-size: 7px;
+            }
+
+            .logo-square .logo-square-consulting {
+                font-size: 4px;
+            }
+
+            .logo-veritas {
+                font-size: 0.8rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.45rem;
+                letter-spacing: 2px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .insights-hero h1 { font-size: 2rem; }
+            .container { padding: 0 16px; }
+
+            .article-image-wrapper {
+                height: 140px;
+            }
+
+            .article-content h3 {
+                font-size: 0.95rem;
+            }
+
+            .article-content p {
+                font-size: 0.85rem;
+            }
+
+            .sidebar-box {
+                padding: 20px 16px;
+            }
+
+            .categories-list li {
+                font-size: 0.7rem;
+                padding: 4px 12px;
+            }
+        }
+
+        /* ============================================================
+           ANIMATIONS
+           ============================================================ */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="header">
+    <div class="container header-container">
+
+        <!-- ===== LOGO ===== -->
+        <a href="index.html" class="logo-area">
+            <!-- OPTION 1: Use Image Logo (Recommended) -->
+            <img src="logo.png" alt="VERITAS CONSULTING" class="logo-image" /> 
+            
+            <!-- OPTION 2: Use Square Text Logo (Fallback) -->
+            
+            <!-- Logo Text beside the square -->
+            <div class="logo-text">
+                <span class="logo-veritas">VERITAS CONSULTING</span>
+                <span class="logo-consulting"></span>
+            </div>
+        </a>
+
+        <!-- ===== NAVIGATION ===== -->
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="insights.html" class="active">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- ===== HEADER CTA ===== -->
+        <div class="header-cta">
+            <a href="contact.html" class="btn-primary btn-cta">
+                <i class="fas fa-handshake"></i> Start a Conversation
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main>
+
+    <!-- ===== INSIGHTS HERO ===== -->
+    <section class="insights-hero">
+        <div class="container insights-hero-content">
+            <h1>Insights &amp; <span class="highlight">Articles</span></h1>
+            <div class="hero-divider"></div>
+            <p>Stay informed with the latest insights, thought leadership, and expert perspectives on governance, risk, compliance, and emerging technologies.</p>
+        </div>
+    </section>
+
+    <!-- ===== INSIGHTS MAIN CONTENT ===== -->
+    <section class="section">
+        <div class="container insights-layout">
+            
+            <!-- ===== ARTICLES GRID ===== -->
+            <div class="insights-main">
+                <div class="articles-grid">
+                    
+                    <!-- Article 1 -->
+                    <div class="article-tile animate-on-scroll delay-1">
+                        <div class="article-image-wrapper">
+                            <!-- OPTION 1: Use Image -->
+                            <img src="AI GOVERMENT.png" alt="AI Governance" class="article-image" />
+                            
+                            <!-- OPTION 2: Use Icon (Fallback) -->
+                            <!-- <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:var(--bg-secondary);"><i class="fas fa-robot"></i></div> -->
+                        </div>
+                        <div class="article-content">
+                            <span class="article-badge coming-soon">Coming Soon</span>
+                            <h3>AI Governance in the Age of Agentic AI</h3>
+                            <p>Exploring the governance frameworks needed for autonomous AI systems.</p>
+                            <div class="article-meta">
+                                <span><i class="fas fa-calendar-alt"></i> Coming 2026</span>
+                                <span><i class="fas fa-tag"></i> AI Governance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="article-tile animate-on-scroll delay-2">
+                        <div class="article-image-wrapper">
+                            <img src="ISO.png" alt="ISO 42001" class="article-image" />
+                            <!-- <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:var(--bg-secondary);"><i class="fas fa-file-alt"></i></div> -->
+                        </div>
+                        <div class="article-content">
+                            <span class="article-badge coming-soon">Coming Soon</span>
+                            <h3>ISO 42001: The New Standard for AI Management</h3>
+                            <p>Understanding the requirements and implementation approach.</p>
+                            <div class="article-meta">
+                                <span><i class="fas fa-calendar-alt"></i> Coming 2026</span>
+                                <span><i class="fas fa-tag"></i> ISO Standards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="article-tile animate-on-scroll delay-3">
+                        <div class="article-image-wrapper">
+                            <img src="PRI.png" alt="Privacy by Design" class="article-image" />
+                            <!-- <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:var(--bg-secondary);"><i class="fas fa-user-secret"></i></div> -->
+                        </div>
+                        <div class="article-content">
+                            <span class="article-badge coming-soon">Coming Soon</span>
+                            <h3>Privacy by Design: Building Trust in Digital Products</h3>
+                            <p>Integrating privacy principles into the product development lifecycle.</p>
+                            <div class="article-meta">
+                                <span><i class="fas fa-calendar-alt"></i> Coming 2026</span>
+                                <span><i class="fas fa-tag"></i> Privacy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 4 -->
+                    <div class="article-tile animate-on-scroll delay-4">
+                        <div class="article-image-wrapper">
+                            <img src="GRC.png" alt="GRC Transformation" class="article-image" />
+                            <!-- <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:var(--bg-secondary);"><i class="fas fa-sync-alt"></i></div> -->
+                        </div>
+                        <div class="article-content">
+                            <span class="article-badge coming-soon">Coming Soon</span>
+                            <h3>GRC Transformation: From Compliance to Resilience</h3>
+                            <p>Evolving GRC programs to enable business agility and innovation.</p>
+                            <div class="article-meta">
+                                <span><i class="fas fa-calendar-alt"></i> Coming 2026</span>
+                                <span><i class="fas fa-tag"></i> GRC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== SIDEBAR ===== -->
+            <aside class="insights-sidebar">
+                
+                <!-- Categories -->
+                <div class="sidebar-box animate-on-scroll">
+                    <h3>Categories</h3>
+                    <ul class="categories-list">
+                        <li>Information Security</li>
+                        <li>GRC</li>
+                        <li>PKI</li>
+                        <li>ISO Management Systems</li>
+                        <li>AI Governance</li>
+                        <li>Cybersecurity</li>
+                        <li>Risk Management</li>
+                        <li>Audit &amp; Assurance</li>
+                        <li>Privacy</li>
+                        <li>Project Management</li>
+                        <li>Transformation</li>
+                        <li>Regulatory Updates</li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="sidebar-box animate-on-scroll">
+                    <h3>Resources</h3>
+                    <ul class="resources-list">
+                        <li><a href="#"><i class="fas fa-file-pdf"></i> White Papers</a></li>
+                        <li><a href="#"><i class="fas fa-briefcase"></i> Case Studies</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Webinars</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Templates</a></li>
+                        <li><a href="#"><i class="fas fa-book"></i>Blogs</a></li>
+                    </ul>
+                </div>
+
+                <!-- ===== CTA BOX - NOW VISIBLE ===== -->
+                <div class="sidebar-box cta-box animate-on-scroll">
+                    <h3>Need Help?</h3>
+                    <p>Get expert guidance for your governance, risk, or compliance challenge.</p>
+                    <a href="contact.html" class="btn-primary">Book a Consultation <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </aside>
+
+        </div>
+    </section>
+
+    <!-- ===== CTA BAR ===== -->
+    <section class="cta-bar">
+        <div class="container cta-bar-content">
+            <span><i class="fas fa-certificate"></i> Want to apply for a certification?</span>
+            <a href="mailto:infovc@veritasconsul.com" class="btn-primary">
+                <i class="fas fa-envelope"></i> Engage Veritas
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <h3>VERITAS CONSULTING</h3>
+            <p class="tagline">Governance. Risk. Compliance. Confidence.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/veritas-consulting-sf/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:infovc@veritasconsul.com"><i class="fas fa-envelope"></i></a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://www.sreshtafoundation.com" target="_blank">SRESHTA FOUNDATION</a></li>
+            </ul>
+        </div>
+        <div class="footer-services">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="services.html#management">Information Security &amp; Management Systems</a></li>
+                <li><a href="services.html#grc">GRC &amp; Technology Risk</a></li>
+                <li><a href="services.html#assurance">Assurance &amp; Audit Readiness</a></li>
+                <li><a href="services.html#privacy">Privacy &amp; Regulatory Compliance</a></li>
+            </ul>
+        </div>
+        <div class="footer-legal">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+            </ul>
+            <p class="copyright">&copy; 2026 VERITAS CONSULTING. All Rights Reserved.</p>
+            <p class="pillar">A pillar of SRESHTA FOUNDATION</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('mainNav');
+
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('open');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+
+        const navLinks = document.querySelectorAll('.main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) {
+                    nav.classList.remove('open');
+                    const icon = hamburger?.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+    });
+</script>
+
+</body>
+</html>

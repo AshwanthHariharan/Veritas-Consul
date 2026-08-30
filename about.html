@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - VERITAS CONSULTING</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================================
+           RESET & VARIABLES
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --nav-bg: #0a1628;
+            --primary: #0a1628;
+            --gold: #c9a84c;
+            --gold-light: #dbb95a;
+            --gold-dark: #b8922f;
+            --text-primary: #1a2332;
+            --text-secondary: #4a5266;
+            --text-muted: #8a94a8;
+            --text-white: #ffffff;
+            --border-color: #e8ebf0;
+            --shadow-sm: 0 2px 8px rgba(10, 22, 40, 0.06);
+            --shadow-md: 0 8px 30px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 22, 40, 0.10);
+            --radius: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-text: 900px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.9;
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- Typography ---------- */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section-title .highlight { color: var(--gold); }
+
+        .section-title-wrapper {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title-wrapper .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 14px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .section { padding: 80px 0; }
+        .alt-bg { background: var(--bg-secondary); }
+
+        /* ---------- Buttons ---------- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .btn-primary.btn-cta {
+            padding: 10px 22px;
+            font-size: 0.85rem;
+        }
+
+        /* ---------- Header ---------- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(10, 22, 40, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+        }
+
+        /* ---------- Logo Area ---------- */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        /* Logo Image - Use this for your logo */
+        .logo-image {
+            height: 52px;
+            width: 52px;
+            border-radius: 12px;
+            object-fit: cover;
+            display: block;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        /* Square Logo with Curved Edges (Text-based fallback) */
+        .logo-square {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+            position: relative;
+        }
+
+        .logo-square:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35);
+        }
+
+        .logo-square::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 14px;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--gold-light), transparent, var(--gold));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .logo-square::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border-radius: 8px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .logo-square-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1;
+            z-index: 1;
+            padding: 4px;
+        }
+
+        .logo-square-veritas {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-square-consulting {
+            font-size: 5.5px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-veritas {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-consulting {
+            font-weight: 500;
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* ---------- Navigation ---------- */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .main-nav ul li a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--text-white);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .main-nav ul li a.active {
+            color: var(--text-white);
+            background: rgba(201, 168, 76, 0.12);
+        }
+
+        .main-nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+        }
+
+        .hamburger:hover { color: var(--gold); }
+        main { padding-top: 76px; }
+
+        /* ============================================================
+           ABOUT HERO
+           ============================================================ */
+        .about-hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .about-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .about-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .about-hero h1 .highlight { color: var(--gold); }
+
+        .about-hero .hero-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 14px auto 18px;
+            border-radius: 2px;
+        }
+
+        .about-hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.9;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ============================================================
+           GLASS CARD
+           ============================================================ */
+        .glass-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 44px 48px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            max-width: var(--max-text);
+            margin: 0 auto;
+        }
+
+        .glass-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--gold);
+        }
+
+        .glass-card .card-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(201, 168, 76, 0.08);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .glass-card .card-image {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            display: block;
+            background: rgba(201, 168, 76, 0.05);
+            padding: 6px;
+            transition: var(--transition);
+        }
+
+        .glass-card:hover .card-icon {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-white);
+        }
+
+        .glass-card:hover .card-image {
+            transform: scale(1.05) rotate(-5deg);
+        }
+
+        .glass-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+        }
+
+        .glass-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            text-align: justify;
+            text-justify: inter-word;
+            margin-bottom: 12px;
+        }
+
+        .glass-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---------- Principles Grid ---------- */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0 18px;
+        }
+
+        .principles-grid .principle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 12px 18px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .principles-grid .principle:hover {
+            border-color: var(--gold);
+            background: rgba(201, 168, 76, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .principles-grid .principle i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* ---------- What We Do List ---------- */
+        .what-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 40px;
+            margin: 20px 0 22px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .what-grid li {
+            padding: 8px 0 8px 28px;
+            position: relative;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            text-align: justify;
+            text-justify: inter-word;
+            line-height: 1.7;
+        }
+
+        .what-grid li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: var(--gold);
+            font-size: 0.5rem;
+        }
+
+        .what-grid li:last-child {
+            border-bottom: none;
+        }
+
+        /* ---------- Vision & Mission ---------- */
+        .vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            max-width: var(--max-text);
+            margin: 0 auto;
+        }
+
+        .vision-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .vision-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .vision-card .vision-icon {
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .vision-card .vision-image {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            margin: 0 auto 14px;
+            display: block;
+        }
+
+        .vision-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .vision-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .vision-description {
+            max-width: var(--max-text);
+            margin: 28px auto 0;
+            text-align: center;
+        }
+
+        .vision-description p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            text-align: justify;
+            text-justify: inter-word;
+            margin-bottom: 10px;
+        }
+
+        .vision-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .vision-description a {
+            color: var(--gold-dark);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .vision-description a:hover { color: var(--gold); }
+
+        /* ---------- Founder ---------- */
+        .founder-box {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px 44px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            max-width: var(--max-text);
+            margin: 0 auto;
+        }
+
+        .founder-box:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--gold);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 0.6fr 1.4fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .founder-image-wrapper {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .founder-image-wrapper:hover {
+            border-color: var(--gold);
+            transform: scale(1.02);
+        }
+
+        .founder-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(transparent, rgba(10, 22, 40, 0.1));
+            pointer-events: none;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .founder-image-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        .founder-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Founder Image Placeholder (if no image) */
+        .founder-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), rgba(201, 168, 76, 0.03));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(201, 168, 76, 0.15);
+            text-align: center;
+            color: var(--text-muted);
+            padding: 20px;
+        }
+
+        .founder-placeholder i {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .founder-placeholder p {
+            font-size: 0.85rem;
+        }
+
+        .founder-info h3 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .founder-info .founder-title {
+            font-size: 0.95rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .founder-info p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            text-align: justify;
+            text-justify: inter-word;
+            margin-bottom: 10px;
+        }
+
+        .founder-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .founder-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0 12px;
+        }
+
+        .founder-credentials span {
+            background: rgba(201, 168, 76, 0.08);
+            border: 1px solid rgba(201, 168, 76, 0.1);
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+            transition: var(--transition);
+        }
+
+        .founder-credentials span:hover {
+            background: var(--gold);
+            color: var(--text-white);
+        }
+
+        /* ---------- Commitment ---------- */
+        .commitment-box {
+            max-width: var(--max-text);
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 44px 48px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .commitment-box:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-md);
+        }
+
+        .commitment-box .quote-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.2;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .commitment-box .quote-image {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            margin: 0 auto 14px;
+            display: block;
+            opacity: 0.3;
+        }
+
+        .commitment-box p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 2;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ---------- CTA Bar ---------- */
+        .cta-bar {
+            padding: 36px 0;
+            background: var(--primary);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .cta-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .cta-bar-content span {
+            color: var(--text-white);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .cta-bar-content span i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.5);
+            padding: 50px 0 28px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand h3 {
+            color: var(--text-white);
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .footer-brand .tagline {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--text-white);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer h4 {
+            color: var(--text-white);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(201, 168, 76, 0.15);
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer ul li a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer ul li a:hover {
+            color: var(--gold);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .pillar {
+            font-size: 0.7rem;
+            color: var(--gold);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pillar::before {
+            content: '◆';
+            font-size: 0.4rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: var(--nav-bg);
+                padding: 16px 20px;
+                border-top: 1px solid rgba(255,255,255,0.05);
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .main-nav.open { display: block; }
+            .main-nav ul { flex-direction: column; gap: 2px; align-items: stretch; }
+            .main-nav ul li a { display: block; padding: 10px 14px; text-align: center; }
+
+            .founder-grid { gap: 30px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .logo-image {
+                height: 42px;
+                width: 42px;
+                border-radius: 10px;
+            }
+
+            .logo-square {
+                width: 42px;
+                height: 42px;
+                border-radius: 10px;
+            }
+
+            .logo-square .logo-square-veritas {
+                font-size: 8px;
+            }
+
+            .logo-square .logo-square-consulting {
+                font-size: 4.5px;
+            }
+
+            .logo-veritas {
+                font-size: 1rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.55rem;
+            }
+
+            .section { padding: 50px 0; }
+
+            .about-hero { padding: 50px 0 30px; }
+            .about-hero h1 { font-size: 2.4rem; }
+            .about-hero p { font-size: 1rem; }
+
+            .glass-card { padding: 28px 20px; }
+            .glass-card h3 { font-size: 1.2rem; }
+
+            .what-grid { grid-template-columns: 1fr; gap: 0; }
+
+            .vision-grid { grid-template-columns: 1fr; gap: 20px; }
+
+            .founder-box { padding: 24px 20px; }
+            .founder-grid { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+            .founder-image-wrapper { max-width: 220px; margin: 0 auto; }
+            .founder-info h3 { text-align: center; }
+            .founder-info .founder-title { text-align: center; }
+            .founder-credentials { justify-content: center; }
+
+            .commitment-box { padding: 28px 20px; }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+
+            .principles-grid { grid-template-columns: 1fr 1fr; }
+
+            .cta-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 36px;
+                width: 36px;
+                border-radius: 8px;
+            }
+
+            .logo-square {
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+            }
+
+            .logo-square .logo-square-veritas {
+                font-size: 7px;
+            }
+
+            .logo-square .logo-square-consulting {
+                font-size: 4px;
+            }
+
+            .logo-veritas {
+                font-size: 0.8rem;
+            }
+
+            .logo-consulting {
+                font-size: 0.45rem;
+                letter-spacing: 2px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .about-hero h1 { font-size: 2rem; }
+            .glass-card { padding: 20px 16px; }
+            .glass-card h3 { font-size: 1.1rem; }
+            .glass-card p { font-size: 0.92rem; }
+            .container { padding: 0 16px; }
+            .founder-image-wrapper { max-width: 160px; }
+            .founder-info h3 { font-size: 1.3rem; }
+            .vision-card { padding: 24px 18px; }
+            .commitment-box { padding: 24px 16px; }
+            .principles-grid { grid-template-columns: 1fr; }
+            .what-grid li { padding: 6px 0 6px 24px; font-size: 0.85rem; }
+        }
+
+        /* ============================================================
+           ANIMATIONS
+           ============================================================ */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="header">
+    <div class="container header-container">
+
+        <!-- ===== LOGO ===== -->
+        <a href="index.html" class="logo-area">
+            <!-- OPTION 1: Use Image Logo (Recommended) -->
+            <img src="logo.png" alt="VERITAS CONSULTING" class="logo-image" /> 
+            
+            <!-- OPTION 2: Use Square Text Logo (Fallback) -->
+            
+            <!-- Logo Text beside the square -->
+            <div class="logo-text">
+                <span class="logo-veritas">VERITAS CONSULTING</span>
+                
+            </div>
+        </a>
+
+        <!-- ===== NAVIGATION ===== -->
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- ===== HEADER CTA ===== -->
+        <div class="header-cta">
+            <a href="contact.html" class="btn-primary btn-cta">
+                <i class="fas fa-handshake"></i> Start a conversation
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main>
+
+    <!-- ===== ABOUT HERO ===== -->
+    <section class="about-hero">
+        <div class="container about-hero-content">
+            <h1>Who We <span class="highlight">Are</span></h1>
+            <div class="hero-divider"></div>
+            <p>VERITAS CONSULTING is a professional advisory practice focused on Governance, Risk, Compliance, Assurance, Cybersecurity, Management Systems and Transformation.</p>
+        </div>
+    </section>
+
+    <!-- ===== WHY VERITAS ===== -->
+    <section class="section" id="why">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Why <span class="highlight">VERITAS</span>?</h2>
+                <p class="section-subtitle">Built on the foundation of Truth, Integrity, and Trust</p>
+            </div>
+            <div class="glass-card animate-on-scroll">
+                <!-- OPTION 1: Use Font Awesome Icon -->
+                <div class="card-icon"><i class="fas fa-scale-balanced"></i></div>
+                
+                <!-- OPTION 2: Use Image (Uncomment and comment the icon above) -->
+                <!-- <img src="assets/images/icons/truth.png" alt="Truth" class="card-image" /> -->
+                
+                <h3>The Power of Truth</h3>
+                <p><strong>VERITAS</strong> is a Latin word meaning <strong>Truth</strong> — a timeless principle representing integrity, transparency, authenticity and trust.</p>
+                <p>Veritas Consulting was derived from this powerful idea: in a world of increasing complexity, organizations need clarity grounded in truth.</p>
+                <p>As organizations accelerate their adoption of Artificial Intelligence, Generative AI, Agentic AI and cloud technologies, the traditional boundaries between technology, risk, security, compliance and business strategy are rapidly disappearing.</p>
+                <p>Veritas Consulting is positioned at this intersection — helping organizations innovate with confidence while governing with accountability.</p>
+                
+                <div class="principles-grid">
+                    <div class="principle"><i class="fas fa-shield-halved"></i> Trust by Design</div>
+                    <div class="principle"><i class="fas fa-lock"></i> Security by Design</div>
+                    <div class="principle"><i class="fas fa-user-secret"></i> Privacy by Design</div>
+                    <div class="principle"><i class="fas fa-sitemap"></i> Governance by Design</div>
+                </div>
+                
+                <p><strong>That is where VERITAS CONSULTING stands.</strong></p>
+                <p>We help organizations discover the truth about their risks, strengthen the trust in their systems, and build governance that enables innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHAT WE DO ===== -->
+    <section class="section alt-bg">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">What We <span class="highlight">Do</span></h2>
+                <p class="section-subtitle">Addressing complex challenges across the governance landscape</p>
+            </div>
+            <div class="glass-card animate-on-scroll">
+                <!-- OPTION 1: Use Font Awesome Icon -->
+                <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                
+                <!-- OPTION 2: Use Image (Uncomment and comment the icon above) -->
+                <!--<img src="assets/images/icons/expertise.png" alt="Expertise" class="card-image" />-->
+                
+                <h3>Our Expertise</h3>
+                <p>VERITAS helps organisations understand and address the complex challenges arising from:</p>
+                
+                <ul class="what-grid">
+                    <li>Governance and accountability requirements</li>
+                    <li>Information and cybersecurity risks</li>
+                    <li>Regulatory and contractual compliance</li>
+                    <li>ISO management system implementation and transition</li>
+                    <li>Internal controls and control effectiveness</li>
+                    <li>Risk identification, assessment and treatment</li>
+                    <li>Audit readiness and assurance</li>
+                    <li>Business continuity and organisational resilience</li>
+                    <li>Third-party and vendor risks</li>
+                    <li>Privacy and data protection obligations</li>
+                    <li>Emerging technology and AI governance</li>
+                    <li>Management-system integration and continual improvement</li>
+                </ul>
+                
+                <p><strong>Our role is not simply to identify gaps.</strong> We work with organisations to understand why those gaps exist, what risks they create, and how they can be addressed through practical, proportionate and sustainable solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VISION & MISSION ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Vision &amp; <span class="highlight">Mission</span></h2>
+                <p class="section-subtitle">Aligned with the principles of SRESHTA FOUNDATION</p>
+            </div>
+            <div class="vision-grid">
+                <div class="vision-card animate-on-scroll delay-1">
+                    <!-- OPTION 1: Use Font Awesome Icon -->
+                    <div class="vision-icon"><i class="fas fa-eye"></i></div>
+                    
+                    <!-- OPTION 2: Use Image (Uncomment and comment the icon above) -->
+                    <!-- <img src="assets/images/icons/vision.png" alt="Vision" class="vision-image" /> -->
+                    
+                    <h4>Our Vision</h4>
+                    <p>To be the trusted governance and resilience partner for organisations seeking clarity in an increasingly complex regulatory, technological and risk environment.</p>
+                </div>
+                <div class="vision-card animate-on-scroll delay-2">
+                    <!-- OPTION 1: Use Font Awesome Icon -->
+                    <div class="vision-icon"><i class="fas fa-rocket"></i></div>
+                    
+                    <!-- OPTION 2: Use Image (Uncomment and comment the icon above) -->
+                    <!-- <img src="assets/images/icons/mission.png" alt="Mission" class="vision-image" /> -->
+                    
+                    <h4>Our Mission</h4>
+                    <p>To translate the principles of SRESHTA Foundation into professional advisory services that help organisations strengthen trust, accountability, resilience and responsible governance.</p>
+                </div>
+            </div>
+            <div class="vision-description">
+                <p>VERITAS CONSULTING operates in alignment with the Vision and Mission of SRESHTA Foundation. Refer to the link <a href="https://www.sreshtafoundation.com" target="_blank">www.sreshtafoundation.com</a></p>
+                <p>VERITAS CONSULTING operates as a professional advisory vertical within the broader ecosystem of SRESHTA Foundation. While VERITAS focuses on Governance, Risk, Compliance and organisational resilience, it contributes to the larger vision of SRESHTA Foundation by promoting responsible, ethical, sustainable and capability-driven growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOUNDER ===== -->
+    <section class="section alt-bg">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Founder &amp; <span class="highlight">Leadership</span></h2>
+                <p class="section-subtitle">Driven by decades of experience and expertise</p>
+            </div>
+            <div class="founder-box animate-on-scroll">
+                <div class="founder-grid">
+                    <div class="founder-image-wrapper">
+                        <!-- OPTION 1: Use actual founder image -->
+                         <img src="Founder.png" alt="Suchindran C. S." class="founder-image" />
+                        
+                        <!-- OPTION 2: Use Placeholder (Fallback) -->
+                        <div class="founder-placeholder">
+                            <i class="fas fa-user-circle"></i>
+                            <p>Founder Image</p>
+                            <p style="font-size: 0.7rem; color: var(--text-muted);">(Add your photo here)</p>
+                        </div>
+                    </div>
+                    <div class="founder-info">
+                        <h3>Suchindran C. S.</h3>
+                        <p class="founder-title">Founder &amp; Managing Director</p>
+                        <p>VERITAS CONSULTING is founded and led by <strong>Suchindran C. S.</strong>, a seasoned IT Governance, Risk and Compliance professional with over two decades of experience in information technology, governance, cybersecurity, compliance and assurance.</p>
+                        <p>The leadership's professional credentials include:</p>
+                        <div class="founder-credentials">
+                            <span>CISA</span>
+                            <span>ISO/IEC 27001 Lead Auditor</span>
+                            <span>ISO/IEC 42001 Lead Auditor</span>
+                            <span>PMP</span>
+                            <span>CMMI Associate</span>
+                        </div>
+                        <p>Supported by extensive practical experience in technology governance, audit coordination, compliance programmes and organisational risk management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMMITMENT ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Our <span class="highlight">Commitment</span></h2>
+                <p class="section-subtitle">More than a compliance advisor — a trusted partner</p>
+            </div>
+            <div class="commitment-box animate-on-scroll">
+                <!-- OPTION 1: Use Font Awesome Icon -->
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                
+                <!-- OPTION 2: Use Image (Uncomment and comment the icon above) -->
+                <!-- <img src="assets/images/icons/quote.png" alt="Quote" class="quote-image" /> -->
+                
+                <p>VERITAS CONSULTING seeks to be more than a compliance advisor. Our objective is to become a trusted governance and resilience partner to organisations seeking clarity in an increasingly complex regulatory, technological and risk environment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BAR ===== -->
+    <section class="cta-bar">
+        <div class="container cta-bar-content">
+            <span><i class="fas fa-certificate"></i> Want to apply for a certification?</span>
+            <a href="mailto:infovc@veritasconsul.com" class="btn-primary">
+                <i class="fas fa-envelope"></i> 
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <h3>VERITAS CONSULTING</h3>
+            <p class="tagline">Governance. Risk. Compliance. Confidence.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/veritas-consulting-sf/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:infovc@veritasconsul.com"><i class="fas fa-envelope"></i></a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://www.sreshtafoundation.com" target="_blank">SRESHTA FOUNDATION</a></li>
+            </ul>
+        </div>
+        <div class="footer-services">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="services.html#management">Information Security &amp; Management Systems</a></li>
+                <li><a href="services.html#grc">GRC &amp; Technology Risk</a></li>
+                <li><a href="services.html#assurance">Assurance &amp; Audit Readiness</a></li>
+                <li><a href="services.html#privacy">Privacy &amp; Regulatory Compliance</a></li>
+            </ul>
+        </div>
+        <div class="footer-legal">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+            </ul>
+            <p class="copyright">&copy; 2026 VERITAS CONSULTING. All Rights Reserved.</p>
+            <p class="pillar">A pillar of SRESHTA FOUNDATION</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('mainNav');
+
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('open');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+
+        const navLinks = document.querySelectorAll('.main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) {
+                    nav.classList.remove('open');
+                    const icon = hamburger?.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+    });
+</script>
+
+</body>
+</html>
