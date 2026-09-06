@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ---------- Scroll Animation ----------
     const observerOptions = {
-        threshold: 0.1,
+        threshold: 0.0001,
         rootMargin: '0px 0px -30px 0px'
     };
 

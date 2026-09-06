@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Insights - VERITAS CONSULTING</title>
+    <title>GRC & Technology Risk - VERITAS CONSULTING</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/png" href="logo.png">
+
     <style>
         /* ============================================================
            RESET & VARIABLES
@@ -58,38 +58,26 @@
         }
 
         /* ---------- Typography ---------- */
-        .section-title {
-            font-size: 2.5rem;
+        .article-title {
+            font-size: 2.8rem;
             font-weight: 800;
             color: var(--text-primary);
             letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .article-title .highlight { color: var(--gold); }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 14px;
         }
 
         .section-title .highlight { color: var(--gold); }
 
-        .section-title-wrapper {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .section-title-wrapper .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            margin: 14px auto 0;
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            margin-top: 8px;
-            text-align: center;
-        }
-
-        .section { padding: 80px 0; }
+        .section { padding: 40px 0; }
         .alt-bg { background: var(--bg-secondary); }
 
         /* ---------- Buttons ---------- */
@@ -316,17 +304,16 @@
         main { padding-top: 76px; }
 
         /* ============================================================
-           INSIGHTS HERO
+           ARTICLE HERO
            ============================================================ */
-        .insights-hero {
-            padding: 80px 0 60px;
+        .article-hero {
+            padding: 60px 0 40px;
             background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .insights-hero::before {
+        .article-hero::before {
             content: '';
             position: absolute;
             top: -30%;
@@ -338,344 +325,264 @@
             pointer-events: none;
         }
 
-        .insights-hero-content {
-            max-width: 800px;
+        .article-hero-content {
+            max-width: var(--max-text);
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
-        .insights-hero-badge {
+        .article-hero .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .article-hero .article-meta span {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(201, 168, 76, 0.1);
-            border: 1px solid rgba(201, 168, 76, 0.15);
-            padding: 6px 18px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--gold-dark);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
-        .insights-hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
+        .article-hero .article-meta span i {
+            color: var(--gold);
         }
 
-        .insights-hero h1 .highlight { color: var(--gold); }
-
-        .insights-hero .hero-divider {
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            margin: 14px auto 18px;
-            border-radius: 2px;
-        }
-
-        .insights-hero p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 680px;
-            margin: 0 auto;
-            line-height: 1.9;
-        }
-
-        /* ============================================================
-           INSIGHTS LAYOUT
-           ============================================================ */
-        .insights-layout {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        /* ============================================================
-           ARTICLES GRID
-           ============================================================ */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .article-tile {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-            position: relative;
-        }
-
-        .article-tile::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: var(--transition);
-            z-index: 2;
-        }
-
-        .article-tile:hover::before {
-            transform: scaleX(1);
-        }
-
-        .article-tile:hover {
-            transform: translateY(-4px);
-            border-color: var(--gold);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Article Image */
-        .article-image-wrapper {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-            position: relative;
-            background: var(--bg-secondary);
-        }
-
-        .article-image-wrapper::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 30%;
-            background: linear-gradient(transparent, rgba(10, 22, 40, 0.04));
-            pointer-events: none;
-        }
-
-        .article-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: var(--transition);
-            display: block;
-        }
-
-        .article-tile:hover .article-image {
-            transform: scale(1.05);
-        }
-
-        /* Article Content */
-        .article-content {
-            padding: 20px 24px 24px;
-        }
-
-        .article-content .article-badge {
+        .article-hero .article-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: var(--text-white);
-            padding: 3px 14px;
+            padding: 4px 16px;
             border-radius: 50px;
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            margin-bottom: 10px;
-        }
-
-        .article-content .article-badge.coming-soon {
-            background: #f0f0f0;
-            color: var(--text-muted);
-            border: 1px solid var(--border-color);
-        }
-
-        .article-content h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 6px;
-            line-height: 1.3;
-        }
-
-        .article-content p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        .article-content .article-meta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border-light);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .article-content .article-meta i {
-            color: var(--gold);
-            margin-right: 4px;
+            margin-bottom: 14px;
         }
 
         /* ============================================================
-           SIDEBAR
+           GLASS CARD - Reusable
            ============================================================ */
-        .insights-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .sidebar-box {
+        .glass-card {
             background: var(--bg-card);
-            padding: 28px 24px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-color);
+            padding: 40px 44px;
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
+            max-width: var(--max-text);
+            margin: 0 auto;
         }
 
-        .sidebar-box:hover {
+        .glass-card:hover {
             border-color: var(--gold);
             box-shadow: var(--shadow-md);
         }
 
-        .sidebar-box h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--gold);
-            display: inline-block;
-        }
-
-        /* Categories */
-        .categories-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .categories-list li {
-            padding: 5px 16px;
-            font-size: 0.78rem;
+        .glass-card p {
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
+            line-height: 1.9;
+            margin-bottom: 16px;
+            text-align: justify;
+            text-justify: inter-word;
         }
 
-        .categories-list li:hover {
-            background: var(--gold);
-            color: var(--text-white);
-            border-color: var(--gold);
-            transform: translateY(-2px);
+        .glass-card p:last-child {
+            margin-bottom: 0;
         }
 
-        /* Resources List */
-        .resources-list {
+        .glass-card p strong {
+            color: var(--text-primary);
+        }
+
+        .glass-card ul {
             list-style: none;
             padding: 0;
+            margin: 12px 0 18px;
         }
 
-        .resources-list li {
-            padding: 8px 0;
+        .glass-card ul li {
+            padding: 6px 0 6px 28px;
+            position: relative;
+            font-size: 1rem;
+            color: var(--text-secondary);
             border-bottom: 1px solid var(--border-light);
-            transition: var(--transition);
+            text-align: justify;
+            text-justify: inter-word;
         }
 
-        .resources-list li:last-child {
+        .glass-card ul li:last-child {
             border-bottom: none;
         }
 
-        .resources-list li a {
+        .glass-card ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            color: var(--gold);
+            font-size: 0.5rem;
+        }
+
+        .glass-card .highlight-box {
+            background: rgba(201, 168, 76, 0.06);
+            border-left: 4px solid var(--gold);
+            padding: 18px 22px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+        }
+
+        .glass-card .highlight-box p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        .glass-card .highlight-box p strong {
+            color: var(--text-primary);
+        }
+
+        .glass-card .divider {
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 24px 0;
+        }
+
+        .glass-card .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        .glass-card .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .glass-card .sub-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Five Questions Grid */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 16px 0 20px;
+        }
+
+        .questions-grid .question-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .questions-grid .question-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .questions-grid .question-item .q-icon {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .questions-grid .question-item h5 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .questions-grid .question-item p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        /* Service Tag */
+        .service-tag {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            padding: 2px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .service-tag:hover {
+            background: var(--gold);
+            color: var(--text-white);
+        }
+
+        /* ============================================================
+           ARTICLE FOOTER / BACK BUTTON
+           ============================================================ */
+        .article-footer {
+            max-width: var(--max-text);
+            margin: 30px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .article-footer .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-weight: 500;
             transition: var(--transition);
+        }
+
+        .article-footer .back-link:hover {
+            color: var(--gold);
+            transform: translateX(-4px);
+        }
+
+        .article-footer .share-links {
             display: flex;
-            align-items: center;
             gap: 10px;
         }
 
-        .resources-list li a i {
-            color: var(--gold);
-            font-size: 0.9rem;
-            width: 20px;
+        .article-footer .share-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: var(--transition);
+            text-decoration: none;
         }
 
-        .resources-list li a:hover {
-            color: var(--gold);
-            transform: translateX(4px);
-        }
-
-        /* ===== CTA BOX - FIXED VISIBILITY ===== */
-        .sidebar-box.cta-box {
-            background: linear-gradient(135deg, #0a1628, #1a2a4a);
-            border-color: var(--gold);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sidebar-box.cta-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 20%, rgba(201, 168, 76, 0.08), transparent 60%);
-            pointer-events: none;
-        }
-
-        .sidebar-box.cta-box h3 {
-            color: #ffffff;
-            border-bottom-color: var(--gold);
-            position: relative;
-            z-index: 1;
-        }
-
-        .sidebar-box.cta-box p {
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 16px;
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        .sidebar-box.cta-box .btn-primary {
+        .article-footer .share-links a:hover {
             background: var(--gold);
-            color: #0a1628;
-            position: relative;
-            z-index: 1;
-            font-weight: 700;
-        }
-
-        .sidebar-box.cta-box .btn-primary:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
-        }
-
-        .sidebar-box.cta-box .btn-primary i {
-            color: #0a1628;
+            color: var(--text-white);
+            border-color: var(--gold);
         }
 
         /* ---------- CTA Bar ---------- */
@@ -845,13 +752,8 @@
             .main-nav ul { flex-direction: column; gap: 2px; align-items: stretch; }
             .main-nav ul li a { display: block; padding: 10px 14px; text-align: center; }
 
-            .insights-layout {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .articles-grid {
-                grid-template-columns: 1fr 1fr;
+            .questions-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -886,32 +788,44 @@
                 font-size: 0.55rem;
             }
 
-            .section { padding: 50px 0; }
+            .section { padding: 30px 0; }
 
-            .insights-hero { padding: 50px 0 30px; }
-            .insights-hero h1 { font-size: 2.4rem; }
-            .insights-hero p { font-size: 1rem; }
+            .article-hero { padding: 40px 0 30px; }
+            .article-title { font-size: 2rem; }
 
-            .articles-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .glass-card {
+                padding: 28px 20px;
             }
 
-            .article-image-wrapper {
-                height: 160px;
+            .glass-card p {
+                font-size: 0.95rem;
+                text-align: left;
             }
 
-            .article-content {
-                padding: 16px 18px 20px;
+            .glass-card .section-title {
+                font-size: 1.3rem;
             }
 
-            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-            .footer-bottom { flex-direction: column; text-align: center; }
+            .glass-card ul li {
+                font-size: 0.9rem;
+            }
+
+            .questions-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .article-footer {
+                flex-direction: column;
+                text-align: center;
+            }
 
             .cta-bar-content {
                 flex-direction: column;
                 text-align: center;
             }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
         }
 
         @media (max-width: 480px) {
@@ -948,28 +862,28 @@
                 display: none;
             }
 
-            .insights-hero h1 { font-size: 2rem; }
+            .article-title { font-size: 1.6rem; }
             .container { padding: 0 16px; }
 
-            .article-image-wrapper {
-                height: 140px;
-            }
-
-            .article-content h3 {
-                font-size: 0.95rem;
-            }
-
-            .article-content p {
-                font-size: 0.85rem;
-            }
-
-            .sidebar-box {
+            .glass-card {
                 padding: 20px 16px;
             }
 
-            .categories-list li {
-                font-size: 0.7rem;
-                padding: 4px 12px;
+            .glass-card p {
+                font-size: 0.9rem;
+            }
+
+            .glass-card .section-title {
+                font-size: 1.1rem;
+            }
+
+            .glass-card ul li {
+                font-size: 0.85rem;
+                padding: 4px 0 4px 22px;
+            }
+
+            .questions-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -991,6 +905,10 @@
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+        .delay-7 { transition-delay: 0.7s; }
+        .delay-8 { transition-delay: 0.8s; }
     </style>
 </head>
 <body>
@@ -1004,14 +922,15 @@
         <!-- ===== LOGO ===== -->
         <a href="index.html" class="logo-area">
             <!-- OPTION 1: Use Image Logo (Recommended) -->
-            <img src="logo.png" alt="VERITAS CONSULTING" class="logo-image" /> 
+            <img src="logo.png" alt="VERITAS CONSULTING" class="logo-image" />
             
             <!-- OPTION 2: Use Square Text Logo (Fallback) -->
+
             
             <!-- Logo Text beside the square -->
             <div class="logo-text">
-                <span class="logo-veritas">VERITAS CONSULTING</span>
-                <span class="logo-consulting"></span>
+                <span class="logo-veritas">VERITAS</span>
+                <span class="logo-consulting">CONSULTING</span>
             </div>
         </a>
 
@@ -1022,7 +941,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="industries.html">Industries</a></li>
-                <li><a href="insights.html" class="active">Insights</a></li>
+                <li><a href="insights.html">Insights</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -1030,7 +949,7 @@
         <!-- ===== HEADER CTA ===== -->
         <div class="header-cta">
             <a href="contact.html" class="btn-primary btn-cta">
-                <i class="fas fa-handshake"></i> Start a Conversation
+                <i class="fas fa-handshake"></i> Request a Consultation
             </a>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
@@ -1044,140 +963,181 @@
      ============================================================ -->
 <main>
 
-    <!-- ===== INSIGHTS HERO ===== -->
-    <section class="insights-hero">
-        <div class="container insights-hero-content">
-            <h1>Insights &amp; <span class="highlight">Articles</span></h1>
-            <div class="hero-divider"></div>
-            <p>Stay informed with the latest insights, thought leadership, and expert perspectives on governance, risk, compliance, and emerging technologies.</p>
+    <!-- ===== ARTICLE HERO ===== -->
+    <section class="article-hero">
+        <div class="container article-hero-content">
+            <div class="article-badge">Featured Article</div>
+            <h1 class="article-title">GRC &amp; <span class="highlight">Technology Risk</span></h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar-alt"></i> January 2026</span>
+                <span><i class="fas fa-tag"></i> GRC</span>
+                <span><i class="fas fa-clock"></i> 7 min read</span>
+            </div>
         </div>
     </section>
 
-    <!-- ===== INSIGHTS MAIN CONTENT ===== -->
+    <!-- ===== SECTION 1: Introduction ===== -->
     <section class="section">
-        <div class="container insights-layout">
-            
-            <!-- ===== ARTICLES GRID ===== -->
-            <div class="insights-main">
-                <div class="articles-grid">
-                    
-                    <!-- Article 1 -->
-                    <div class="article-tile animate-on-scroll delay-1" onclick="location.href='article-ai-governance.html'">
-                        <div class="article-image-wrapper">
-                            <!-- OPTION 1: Use Image -->
-                            <img src="AI GOVERMENT.png" alt="AI Governance" class="article-image" />
-                            
-                            <!-- OPTION 2: Use Icon (Fallback) -->
-                            <!-- <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:var(--bg-secondary);"><i class="fas fa-robot"></i></div> -->
-                        </div>
-                        <div class="article-content">
-                            <span class="article-badge coming-soon">Coming Soon</span>
-                            <h3>AI Governance in the Age of Agentic AI</h3>
-                            <p>Exploring the governance frameworks needed for autonomous AI systems.</p>
-                            <div class="article-meta">
-                                <span><i class="fas fa-calendar-alt"></i> Coming 2026</span>
-                                <span><i class="fas fa-tag"></i> AI Governance</span>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="glass-card animate-on-scroll">
+                <p>Governance, Risk and Compliance should not operate as separate functions.</p>
+                
+                <p>An organisation may have policies, controls, audits and compliance programmes — yet still struggle to understand its overall risk exposure.</p>
+                
+                <p>The reason is often fragmentation.</p>
+                
+                <p>Technology risk sits with IT. Compliance sits with another function. Vendor risk is managed elsewhere. Internal controls may exist without a clear connection to business objectives.</p>
+                
+                <p>GRC brings these elements together.</p>
+                
+                <p>At Veritas Consulting, we help organisations establish a structured approach to governance, risk and compliance while addressing the technology risks that increasingly sit at the centre of modern business.</p>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Article 2 -->
-                    <div class="article-tile animate-on-scroll delay-2" onclick="location.href='ISO.html'">
-                        <div class="article-image-wrapper">
-                            <img src="ISO.png" alt="ISO 42001" class="article-image" />
-                            <!-- <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:var(--bg-secondary);"><i class="fas fa-file-alt"></i></div> -->
-                        </div>
-                        <div class="article-content">
-                            <span class="article-badge coming-soon">Coming Soon</span>
-                            <h3>ISO 42001: The New Standard for AI Management</h3>
-                            <p>Understanding the requirements and implementation approach.</p>
-                            <div class="article-meta">
-                                <span><i class="fas fa-calendar-alt"></i> Coming 2026</span>
-                                <span><i class="fas fa-tag"></i> ISO Standards</span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- ===== SECTION 2: What Does GRC Mean? ===== -->
+    <section class="section alt-bg">
+        <div class="container">
+            <div class="glass-card animate-on-scroll delay-1">
+                <h3 class="section-title">What Does <span class="highlight">GRC</span> Mean?</h3>
+                
+                <p><strong>Governance</strong> establishes direction, accountability and oversight.</p>
+                
+                <p><strong>Risk management</strong> helps organisations understand uncertainty and make informed decisions.</p>
+                
+                <p><strong>Compliance</strong> ensures that applicable obligations are identified, understood and addressed.</p>
+                
+                <p>Together, they create a framework through which management can make decisions with greater confidence.</p>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Article 3 -->
-                    <div class="article-tile animate-on-scroll delay-3" onclick="location.href='design.html'">
-                        <div class="article-image-wrapper">
-                            <img src="PRI.png" alt="Privacy by Design" class="article-image" />
-                            <!-- <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:var(--bg-secondary);"><i class="fas fa-user-secret"></i></div> -->
-                        </div>
-                        <div class="article-content">
-                            <span class="article-badge coming-soon">Coming Soon</span>
-                            <h3>Privacy by Design: Building Trust in Digital Products</h3>
-                            <p>Integrating privacy principles into the product development lifecycle.</p>
-                            <div class="article-meta">
-                                <span><i class="fas fa-calendar-alt"></i> Coming 2026</span>
-                                <span><i class="fas fa-tag"></i> Privacy</span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- ===== SECTION 3: Our GRC & Technology Risk Services ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="glass-card animate-on-scroll delay-2">
+                <h3 class="section-title">Our GRC &amp; Technology Risk <span class="highlight">Services</span></h3>
+                
+                <div class="highlight-box">
+                    <p><strong>Governance Advisory</strong><br />We help organisations strengthen governance structures, accountability models, decision-making processes and oversight mechanisms. The objective is to ensure that governance is connected to business strategy rather than existing only as a policy framework.</p>
+                </div>
 
-                    <!-- Article 4 -->
-                    <div class="article-tile animate-on-scroll delay-4" onclick="location.href='GRC.html'">
-                        <div class="article-image-wrapper">
-                            <img src="GRC.png" alt="GRC Transformation" class="article-image" />
-                            <!-- <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:var(--bg-secondary);"><i class="fas fa-sync-alt"></i></div> -->
-                        </div>
-                        <div class="article-content">
-                            <span class="article-badge coming-soon">Coming Soon</span>
-                            <h3>GRC Transformation: From Compliance to Resilience</h3>
-                            <p>Evolving GRC programs to enable business agility and innovation.</p>
-                            <div class="article-meta">
-                                <span><i class="fas fa-calendar-alt"></i> Coming 2026</span>
-                                <span><i class="fas fa-tag"></i> GRC</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="highlight-box">
+                    <p><strong>Risk Management</strong><br />We help organisations establish practical risk-management approaches covering:</p>
+                    <ul style="margin-top: 8px;">
+                        <li>Enterprise risks</li>
+                        <li>Operational risks</li>
+                        <li>Technology risks</li>
+                        <li>Information-security risks</li>
+                        <li>Third-party risks</li>
+                        <li>Compliance risks</li>
+                        <li>Business continuity risks</li>
+                        <li>Emerging risks</li>
+                    </ul>
+                    <p style="margin-top: 8px;">We help management move from risk registers to risk-informed decision-making.</p>
+                </div>
 
+                <div class="highlight-box">
+                    <p><strong>Technology Risk</strong><br />Technology has become inseparable from business operations. Cloud platforms, SaaS applications, AI systems, cybersecurity, infrastructure, software development and digital services all introduce new dimensions of risk. Veritas helps organisations understand and assess technology-related risks and establish appropriate controls.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Compliance Advisory</strong><br />Regulatory and contractual obligations can become difficult to manage as organisations grow. We help organisations identify applicable requirements, map obligations to controls and establish mechanisms for monitoring compliance.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Internal Audits</strong><br />We provide internal audit support across management systems, compliance frameworks and organisational control environments. The objective is to provide management with an independent perspective on the effectiveness of existing controls.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Third-Party / Vendor Risk</strong><br />Organisations increasingly depend on external service providers. A vendor may process sensitive information, operate critical infrastructure or support important business processes. We help organisations establish structured third-party risk practices covering:</p>
+                    <ul style="margin-top: 8px;">
+                        <li>Vendor due diligence</li>
+                        <li>Risk classification</li>
+                        <li>Security and compliance assessments</li>
+                        <li>Contractual requirements</li>
+                        <li>Control reviews</li>
+                        <li>Periodic monitoring</li>
+                        <li>Remediation</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Policy, Procedure &amp; Control Framework Development</strong><br />Policies should define organisational intent. Procedures should explain how that intent is operationalised. Controls should provide evidence that the required activities are actually happening. Veritas helps organisations connect these three layers into a coherent control environment.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- ===== SIDEBAR ===== -->
-            <aside class="insights-sidebar">
+    <!-- ===== SECTION 4: How Veritas Approaches GRC ===== -->
+    <section class="section alt-bg">
+        <div class="container">
+            <div class="glass-card animate-on-scroll delay-3">
+                <h3 class="section-title">How Veritas Approaches <span class="highlight">GRC</span></h3>
                 
-                <!-- Categories -->
-                <div class="sidebar-box animate-on-scroll">
-                    <h3>Categories</h3>
-                    <ul class="categories-list">
-                        <li>Information Security</li>
-                        <li>GRC</li>
-                        <li>PKI</li>
-                        <li>ISO Management Systems</li>
-                        <li>AI Governance</li>
-                        <li>Cybersecurity</li>
-                        <li>Risk Management</li>
-                        <li>Audit &amp; Assurance</li>
-                        <li>Privacy</li>
-                        <li>Project Management</li>
-                        <li>Transformation</li>
-                        <li>Regulatory Updates</li>
-                    </ul>
+                <p>We believe GRC should not create another layer of bureaucracy.</p>
+                
+                <p>Instead, it should help management answer five fundamental questions:</p>
+
+                <div class="questions-grid">
+                    <div class="question-item">
+                        <div class="q-icon"><i class="fas fa-bullseye"></i></div>
+                        <h5>What matters to us?</h5>
+                        <p>Understanding organisational priorities</p>
+                    </div>
+                    <div class="question-item">
+                        <div class="q-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <h5>What can go wrong?</h5>
+                        <p>Identifying potential risks</p>
+                    </div>
+                    <div class="question-item">
+                        <div class="q-icon"><i class="fas fa-tools"></i></div>
+                        <h5>What are we doing about it?</h5>
+                        <p>Establishing controls</p>
+                    </div>
+                    <div class="question-item">
+                        <div class="q-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <h5>How do we know our controls are working?</h5>
+                        <p>Monitoring and testing</p>
+                    </div>
+                    <div class="question-item">
+                        <div class="q-icon"><i class="fas fa-chart-line"></i></div>
+                        <h5>What needs to improve?</h5>
+                        <p>Continual improvement</p>
+                    </div>
                 </div>
+                
+                <p>That is the foundation of practical GRC.</p>
+            </div>
+        </div>
+    </section>
 
-                <!-- Resources -->
-                <div class="sidebar-box animate-on-scroll">
-                    <h3>Resources</h3>
-                    <ul class="resources-list">
-                        <li><a href="#"><i class="fas fa-file-pdf"></i> White Papers</a></li>
-                        <li><a href="#"><i class="fas fa-briefcase"></i> Case Studies</a></li>
-                        <li><a href="#"><i class="fas fa-video"></i> Webinars</a></li>
-                        <li><a href="#"><i class="fas fa-file-alt"></i> Templates</a></li>
-                        <li><a href="#"><i class="fas fa-book"></i>Blogs</a></li>
-                    </ul>
+    <!-- ===== SECTION 5: Why Veritas ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="glass-card animate-on-scroll delay-4">
+                <h3 class="section-title">Why <span class="highlight">Veritas</span>?</h3>
+                
+                <p>Veritas brings together management systems, technology risk, audit, compliance and governance rather than looking at each area in isolation.</p>
+                
+                <p>This allows us to help organisations develop a more connected view of risk and control.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ARTICLE FOOTER ===== -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="article-footer animate-on-scroll delay-5">
+                <a href="insights.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Insights
+                </a>
+                <div class="share-links">
+                    <a href="#" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Share via Email"><i class="fas fa-envelope"></i></a>
                 </div>
-
-                <!-- ===== CTA BOX - NOW VISIBLE ===== -->
-                <div class="sidebar-box cta-box animate-on-scroll">
-                    <h3>Need Help?</h3>
-                    <p>Get expert guidance for your governance, risk, or compliance challenge.</p>
-                    <a href="contact.html" class="btn-primary">Book a Consultation <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-            </aside>
-
+            </div>
         </div>
     </section>
 
@@ -1186,7 +1146,7 @@
         <div class="container cta-bar-content">
             <span><i class="fas fa-certificate"></i> Want to apply for a certification?</span>
             <a href="mailto:infovc@veritasconsul.com" class="btn-primary">
-                <i class="fas fa-envelope"></i> Engage Veritas
+                <i class="fas fa-envelope"></i> Request Quote
             </a>
         </div>
     </section>
@@ -1231,7 +1191,7 @@
         <div class="footer-legal">
             <h4>Legal</h4>
             <ul>
-                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="#">Privacy Policy</a></li>
                 <li><a href="terms.html">Terms of Use</a></li>
             </ul>
             <p class="copyright">&copy; 2026 VERITAS CONSULTING. All Rights Reserved.</p>
